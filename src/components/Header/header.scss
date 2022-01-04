@@ -1,4 +1,11 @@
+@use '../../styles/vars';
+
 .header {
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: vars.$writing;
 }

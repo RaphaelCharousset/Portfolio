@@ -1,3 +1,24 @@
+@use '../../styles/vars';
+
 .hero {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background: vars.$primary;
+  color: vars.$writing;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    // margin: auto;
+    gap: 1rem;
+    font-size: 3rem;
+
+    &__part2 {
+      color: vars.$secondary;
+      font-size: 5rem;
+    }
+  }
 }

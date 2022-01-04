@@ -5,7 +5,7 @@ import './stack.scss'
 export const Stack = () => {
   return (
     <section className='stack'>
-      <h2>Mes compéteces</h2>
+      <h2>Mes compétences</h2>
       <FrontEnd />
       <BackEnd />
     </section>
