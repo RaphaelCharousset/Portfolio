@@ -1,0 +1,15 @@
+@use '../../styles/vars';
+
+.stack {
+  background: vars.$primary;
+  min-height: 60vh;
+
+  &__title {
+    color: vars.$secondary;
+  }
+
+  &__sections {
+    display: flex;
+    justify-content: space-between;
+  }
+}

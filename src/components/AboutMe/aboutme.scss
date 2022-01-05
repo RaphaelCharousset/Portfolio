@@ -2,13 +2,15 @@
 
 .about {
   // background: #486799;
-  background: lighten($color: vars.$primary, $amount: 10);
+  background: vars.$alternative-bg;
+  // background: lighten($color: vars.$primary, $amount: 10);
   padding-top: 5rem;
   padding-bottom: 5rem;
   
   &__goal {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    color: vars.$primary;
   }
 
   &__conviction {

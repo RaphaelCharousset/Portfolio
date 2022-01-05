@@ -1,0 +1,9 @@
+@use '../../styles/vars';
+
+.social {
+  background: vars.$primary;
+  
+  &__title {
+    color: vars.$secondary;
+  }
+}

@@ -1,0 +1,10 @@
+@use '../../styles/vars';
+
+.projects {
+  background: vars.$alternative-bg;
+  color: vars.$primary;
+
+  &__title {
+    color: vars.$secondary;
+  }
+}
