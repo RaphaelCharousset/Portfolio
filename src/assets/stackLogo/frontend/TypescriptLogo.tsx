@@ -1,4 +1,4 @@
-import { Vector } from "../../interfaces/Vector"
+import { Vector } from "../../../interfaces/Vector"
 
 export const TypescriptLogo = ({color, size}: Vector) => {
   return (

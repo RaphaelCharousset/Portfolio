@@ -18,13 +18,21 @@
     white-space: nowrap;
     overflow-x: hidden;
     margin-bottom: 1rem;
-
-    & div {
-      display: inline-block;
-      margin-right: 4rem;
-      vertical-align: middle;
-    }
+    position: relative;
+    height: 80px;
     
+    &__item {
+      position: absolute;
+      display: inline-block;
+      vertical-align: middle;
+      top: 50%;
+      transform: translate(0, -50%);
+      transition: left 2000ms linear;
+    }
+
+    & .hidden {
+      opacity: 0;
+    }
   }
 
   &__title {
@@ -32,5 +40,4 @@
     font-size: 1.5rem;
     margin-bottom: 2rem;
   }
-
 }
