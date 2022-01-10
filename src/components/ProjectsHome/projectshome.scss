@@ -3,8 +3,14 @@
 .projects {
   background: vars.$alternative-bg;
   color: vars.$primary;
+  padding-bottom: 4rem;
 
   &__title {
     color: vars.$secondary;
+  }
+
+  &__container {
+    display: flex;
+    gap: 2rem;
   }
 }
