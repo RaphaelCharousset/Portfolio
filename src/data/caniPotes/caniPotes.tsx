@@ -1,5 +1,5 @@
-import { Project } from './../interfaces/Project';
-import img from './caniPotes.jpg';
+import { Project } from '../../interfaces/Project';
+import img from './caniPotes.png';
 
 export const canipotes: Project = {
   name: "Cani' Potes",

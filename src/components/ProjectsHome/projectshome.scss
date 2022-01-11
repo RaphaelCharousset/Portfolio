@@ -10,7 +10,12 @@
   }
 
   &__container {
-    display: flex;
-    gap: 2rem;
+    overflow-x: hidden;
+
+    &__slider {
+      display: flex;
+      gap: 2rem;
+      transition: transform .5s ease;
+    }
   }
 }

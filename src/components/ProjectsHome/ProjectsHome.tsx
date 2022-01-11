@@ -13,9 +13,11 @@ export const ProjectsHome = () => {
       <h2 className='projects__title'>Mes réalisations</h2>
 
       <div className="projects__container">
-        {projects.map((project, index) => 
-            <SingleProject key={index} {...project} />
-        )}
+        <div className="projects__container__slider">
+          {projects.map((project, index) => 
+              <SingleProject key={index} {...project} />
+          )}
+        </div>
       </div>
 
       <div className="projects__buttons">

@@ -17,25 +17,27 @@ export const SingleProject = (
         </div>
       </header>
 
-      <section className="single-project__container">
-        <h3 className="single-project__container__title">
-          <strong>{name}</strong> - <span>{year}</span>
-        </h3>
-        <p>{description}</p>
-      </section>
+      <div className="single-project__main">
+        <section className="single-project__container">
+          <h3 className="single-project__container__title">
+            <strong>{name}</strong> - <span>{year}</span>
+          </h3>
+          <p>{description}</p>
+        </section>
 
-      <footer className='single-project__footer'>
-      {ghLink && (
-          <a href={ghLink} target='blanck'>
-            <Github />
-          </a>
-        )}
-        {urlLink && (
-          <a href={urlLink} target='blanck'>
-            <Web />
-          </a>
-        )}
-      </footer>
+        <footer className='single-project__footer'>
+          {ghLink && (
+            <a href={ghLink} target='blanck'>
+              <Github />
+            </a>
+          )}
+          {urlLink && (
+            <a href={urlLink} target='blanck'>
+              <Web />
+            </a>
+          )}
+        </footer>
+      </div>
     </article>
   )
 }

@@ -1,5 +1,5 @@
-import { Project } from '../interfaces/Project';
-import img from './caniPotes.jpg';
+import { Project } from '../../interfaces/Project';
+import img from './toutDoux.png';
 
 export const toutDoux: Project = {
   name: "Tout-doux list",
