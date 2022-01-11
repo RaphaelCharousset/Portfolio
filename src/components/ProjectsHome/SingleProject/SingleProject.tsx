@@ -1,3 +1,5 @@
+import Github from '../../../assets/websiteIcons/Github';
+import Web from '../../../assets/websiteIcons/Web';
 import { Project } from './../../../interfaces/Project';
 import './singleProject.scss'
 
@@ -23,8 +25,16 @@ export const SingleProject = (
       </section>
 
       <footer className='single-project__footer'>
-        {ghLink}
-        {urlLink}
+      {ghLink && (
+          <a href={ghLink} target='blanck'>
+            <Github />
+          </a>
+        )}
+        {urlLink && (
+          <a href={urlLink} target='blanck'>
+            <Web />
+          </a>
+        )}
       </footer>
     </article>
   )

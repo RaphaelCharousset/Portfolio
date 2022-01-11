@@ -5,7 +5,8 @@
   border: 1px solid red;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
+  justify-content: space-between;
   background: vars.$primary;
 
   &__header {
@@ -31,6 +32,7 @@
   }
 
   &__container {
+    padding: 0 1rem;
     
     &__title {
       margin-bottom: .5rem;
@@ -42,6 +44,27 @@
 
       & span {
         color: inherit;
+      }
+    }
+  }
+
+  &__footer {
+    padding: 0 1rem 1rem;
+    display: flex;
+    justify-content: space-evenly;
+
+    & svg {
+      width: 1.5rem;
+      transition: all .4s ease;
+      fill: vars.$writing;
+      
+      &:hover {
+        transform: scale(1.2);
+        fill: vars.$secondary;
+      }
+      
+      & path {
+        fill: inherit;
       }
     }
   }
