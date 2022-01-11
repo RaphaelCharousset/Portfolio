@@ -14,8 +14,24 @@
 
     &__slider {
       display: flex;
-      gap: 2rem;
-      transition: transform .5s ease;
+      transition: transform 1s ease;
+    }
+  }
+
+  &__buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: .5rem;
+
+    & button {
+      width: 2rem;
+      height: .66rem;
+      border: 2px solid vars.$primary;
+      border-radius: 5px;
+    }
+
+    .selected {
+      background: vars.$secondary	;
     }
   }
 }
