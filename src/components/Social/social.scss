@@ -6,4 +6,17 @@
   &__title {
     color: vars.$secondary;
   }
+
+  &__contacts, &__websites {
+    display: flex;
+    padding-bottom: 2rem;
+  }
+
+  &__contacts {
+    justify-content: space-evenly;
+  }
+
+  &__websites {
+    justify-content: space-between;
+  }
 }

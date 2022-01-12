@@ -28,6 +28,10 @@
       height: .66rem;
       border: 2px solid vars.$primary;
       border-radius: 5px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     .selected {
