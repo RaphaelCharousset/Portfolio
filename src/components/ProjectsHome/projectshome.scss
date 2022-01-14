@@ -33,6 +33,10 @@
       &:hover {
         cursor: pointer;
       }
+
+      &:last-child {
+        display: none;
+      }
     }
 
     .selected {

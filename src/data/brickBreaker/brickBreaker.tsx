@@ -6,7 +6,7 @@ export const brickBreaker: Project = {
   year: 2021,
   coverImg: img,
   coverImgAlt: "Brick-Breaker project",
-  stack: ['HTML', 'SASS', 'JS'],
+  stack: ['HTML', 'Sass', 'JS'],
   ghLink: 'https://github.com/RaphaelCharousset/Brick-Breaker',
   urlLink: 'https://raphaelcharousset.github.io/Brick-Breaker/',
   description: "Petit jeu de brick-breaker réalisé en JavaScript Vanilla. L'objectif était de me familiariser avec les évènements JavaScript. "

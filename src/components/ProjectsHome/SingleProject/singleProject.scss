@@ -1,17 +1,33 @@
 @use '../../../styles/vars';
 
+$project-height: 450px;
+$img-height: 330px;
+$main-height: 300px;
+
 .single-project {
-  flex: 0 0 31%;
-  display: flex;
-  flex-direction: column;
+  flex: 0 0 48%;
   border-radius: 10px 10px 0 0;
   overflow: hidden;
+  position: relative;
+  height: $project-height;
+
+  &:hover {
+    .single-project__header {
+      transform: scale(1.2);
+    }
+
+    .single-project__main {
+      bottom: 0;
+    }
+
+  }
   
   &__header {
+    transition: all .3s ease;
     
     &__img {
       width: 100%;
-      height: 220px;
+      height: $img-height;
       
       & img {
         width: 100%;
@@ -22,38 +38,41 @@
   }
   
   &__main {
+    position: absolute;
+    height: $main-height;
+    left: 0;
+    bottom: -180px; // $main-height - ($project-height - $project-height)
     background: vars.$primary;
-    padding-top: 1rem;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: all .3s ease;
+    padding: 1rem 1rem;
+    overflow: hidden;
 
     &__stack {
       display: flex;
       justify-content: space-between;
-      padding: 0 1rem 1rem;
+      flex-wrap: wrap;
       color: vars.$secondary;
+      font-family: 'Playfair Display', serif;
       
       & span {
         color: inherit;
-        font-size: .7rem;
-        text-transform: uppercase;
       }
     }
-  }
-  
-  &__container {
-    padding: 0 1rem 1rem;
-    
-    &__title {
-      margin-bottom: .5rem;
-      color: vars.$grey;
 
+    &__title {
+      width: 100%;
+      margin-top: 2rem;
+      
       & strong {
         color: vars.$secondary;
+        font-size: 1.5rem;
+        font-family: 'Playfair Display', serif;
       }
-
+  
       & span {
         color: inherit;
       }
@@ -68,11 +87,11 @@
 
     & svg {
       width: 1.5rem;
-      transition: all .4s ease;
+      transition: all .5s ease;
       fill: vars.$writing;
       
       &:hover {
-        transform: scale(1.2);
+        transform: scale(1.8) rotate(360deg);
         fill: vars.$secondary;
       }
       

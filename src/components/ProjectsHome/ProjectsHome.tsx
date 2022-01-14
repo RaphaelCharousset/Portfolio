@@ -44,7 +44,7 @@ export const ProjectsHome = () => {
 
       <div className="projects__buttons">
         {projects.map((_, index) => (
-          index < (projects.length - 1) &&
+          index < (projects.length) &&
           <button
             value={index}
             key={index}

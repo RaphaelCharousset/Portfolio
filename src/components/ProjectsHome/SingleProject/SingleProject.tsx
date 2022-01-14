@@ -18,14 +18,12 @@ export const SingleProject = forwardRef((
     <div className="single-project__main">
       <div className="single-project__main__stack">
         {stack.map((item, index) => <span key={index}>{item}</span>)}
-      </div>
-      <section className="single-project__container">
-        <h3 className="single-project__container__title">
+        <h3 className="single-project__main__title">
           <strong>{name}</strong> - <span>{year}</span>
         </h3>
+      </div>
 
-        <p>{description}</p>
-      </section>
+      <p>{description}</p>
 
       <footer className='single-project__footer'>
         {ghLink && (
