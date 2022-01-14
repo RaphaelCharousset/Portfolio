@@ -1,14 +1,10 @@
-import { NavLink } from 'react-router-dom';
-import './projectshome.scss'
 import { projects } from './../../data/index';
 import { SingleProject } from './SingleProject/SingleProject';
 import { createRef, MouseEvent, useState, useEffect } from 'react';
+import './projectshome.scss'
 
 export const ProjectsHome = () => {
-  console.log('render bro');
-  
   useEffect(() => {
-    console.log('render');
     projects.sort((a, b) => b.year - a.year)
   }, [])
   
@@ -18,7 +14,7 @@ export const ProjectsHome = () => {
   const [selected, setSelected] = useState(0)
   
   const handleClick: (e: MouseEvent<HTMLButtonElement>) => void = (e) => {
-    const width: number = ref.current?.offsetWidth
+    const width: number = ref.current.offsetWidth
     const index: number = e.target.value
     setPosition(index * (width + gap))
     setSelected(index)

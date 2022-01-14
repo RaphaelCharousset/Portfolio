@@ -3,15 +3,41 @@
 .stack-section {
   width: 40%;
   border: 1px solid rgba($color: vars.$secondary, $alpha: .5);
-  border-radius: 2px;
-  padding: 3rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border: 10px solid vars.$secondary;
+    transition: all .3s ease;
+  }
 
   &:hover {
     border: 1px solid vars.$secondary;
 
-    .stack-section__title {
+    &::before {
+      transform: translate(20px, 20px);
+    }
+  }
+  
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    padding: 3rem;
+    background: vars.$primary;
+    position: relative;
+    z-index: 1;
+    color: vars.$writing;
+
+    &:hover {
       color: vars.$secondary;
     }
+    color: inherit;
   }
 
   &__icons {
@@ -39,5 +65,6 @@
     transition: all .3s ease;
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    color: inherit;
   }
 }

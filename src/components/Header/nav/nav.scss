@@ -1,6 +1,63 @@
+@use '../../../styles/vars';
+
 .header-nav {
-  ul {
+  &-ul {
     display: flex;
     gap: 1rem;
+
+    &__list {
+      text-transform: uppercase;
+      font-size: .8rem;
+
+      &__projects {
+        padding: .8rem;
+        position: relative;
+
+        &::before {
+          position: absolute;
+          content: '';
+          left: 50%;
+          right: 50%;
+          bottom: 0;
+          height: 1px;
+          background: vars.$secondary;
+          transition: all .5s ease-in-out;
+        }
+
+        &:hover::before {
+          left: 0.8rem;
+          right: 0.8rem;
+        }
+      }
+
+      &__contact {
+        padding: .8rem;
+        border: 1px solid vars.$secondary;
+        border-radius: 5px;
+        transition: all .3s;
+        position: relative;
+        
+        &:hover {
+          color: darken($color: vars.$primary, $amount: 10);
+          font-weight: bold;
+
+          .header-nav__contact-button {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+
+  &__contact-button {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: scale(0);
+    background: vars.$secondary;
+    transition: transform .4s ease-out;
+    z-index: -1;
   }
 }

@@ -6,7 +6,9 @@ interface Icon {
   nbIcons: number
 }
 
-const animation = (state: number, stateSetter, nbIcons: number, setIsHidden) => {
+const animation = (
+  state: number, stateSetter: (arg: number) => void, nbIcons: number, setIsHidden: (arg: boolean) => void
+) => {
   if (state < 0) {
     setIsHidden(true)
     stateSetter((50 + 50) * (nbIcons - 1))

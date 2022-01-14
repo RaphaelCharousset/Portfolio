@@ -3,8 +3,62 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: absolute;
+  z-index: 0;
   top: 0;
   left: 0;
   right: 0;
+  padding-top: 2rem;
+
+  &__logo {
+    font-family: 'Courgette', cursive;
+    font-size: 2.2rem;
+    color: vars.$secondary;
+    position: relative;
+    padding-top: 3px;
+
+    
+    &:hover {
+      &::before {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        height: 1px;
+        background: vars.$secondary;
+        animation: showFromRight .3s ease forwards;
+      }
+  
+      &::after {
+        display: block;
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        background: vars.$secondary;
+        animation: showFromLeft .3s ease forwards;
+      }
+    }
+  }
+}
+
+@keyframes showFromLeft {
+  from {
+    right: 100%;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@keyframes showFromRight {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
 }

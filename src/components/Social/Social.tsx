@@ -3,8 +3,9 @@ import { GithubLogo } from '../../assets/socialLogo/GithubLogo'
 import { LinkedinLogo } from '../../assets/socialLogo/LinkedinLogo'
 import { MailLogo } from '../../assets/socialLogo/MailLogo'
 import { PhoneLogo } from '../../assets/socialLogo/PhoneLogo'
-import './social.scss'
 import SocialItem from './SocialItem/SocialItem'
+
+import './social.scss'
 
 export const Social = () => {
   return (

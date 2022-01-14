@@ -4,12 +4,12 @@ import { SassLogo } from '../../assets/stackLogo/frontend/SassLogo'
 import { TypescriptLogo } from '../../assets/stackLogo/frontend/TypescriptLogo'
 import { JavascriptLogo } from '../../assets/stackLogo/frontend/JavascriptLogo'
 import { Section } from './Section/Section'
-import './stack.scss'
 import { NodeLogo } from '../../assets/stackLogo/backend/NodeLogo'
 import { ExpressLogo } from '../../assets/stackLogo/backend/ExpressLogo'
 import { PsqlLogo } from '../../assets/stackLogo/backend/PsqlLogo'
 import { FirebaseLogo } from '../../assets/stackLogo/backend/FirebaseLogo'
 import { StackSection } from '../../interfaces/StackSection'
+import './stack.scss'
 
 export const Stack = () => {
   const { logoColor, logoSize } : { logoColor: string, logoSize: string } = {
@@ -19,7 +19,7 @@ export const Stack = () => {
 
   const frontSection: StackSection = {
     title: 'Frontend ReactJS',
-    content: "Après un coup de coeur pour le JavaScript vanilla, j'ai décidé d'évoluer dans l'écosystème React pour créer des applications dynamiques. Je suis également friand de l'utilisation du préprocesseur SASS.",
+    content: "Après un coup de coeur pour le JavaScript vanilla, j'ai décidé d'évoluer dans l'écosystème React pour créer des applications dynamiques. J'utilise volontiers le préprocesseur SASS pour ajouter des feuilles de style.",
     icons: [
       <JavascriptLogo color={logoColor} size={logoSize}/>,
       <ReactLogo color={logoColor} size={logoSize}/>,
@@ -31,7 +31,7 @@ export const Stack = () => {
 
   const backSection: StackSection = {
     title: 'Backend NodeJS',
-    content: "Quel plaisir d'utiliser le JavaScript également côté backend ! J'utilise le framework Express. J'utilise postgreSQL ou Firebase pour mes bases de données.",
+    content: "J'utilise JavaScript pour mon backend avec NodeJs et le framework Express. Je peux construire une base de données avec postgreSQL ou Firebase.",
     icons: [
       <NodeLogo color={logoColor} size={logoSize}/>,
       <ExpressLogo color={logoColor} size={logoSize}/>,

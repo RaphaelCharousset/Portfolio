@@ -1,0 +1,37 @@
+@use '../../../styles/vars';
+
+.social-item {
+  position: relative;
+  flex: 0 0 30%;
+  padding: 1.5rem;
+  border: 1px solid vars.$secondary;
+  border-radius: 5px;
+  transition: all .3s ease;
+
+  &:hover {
+    background: vars.$secondary;
+
+    .social-item__social, .social-item__content {
+      color: black;
+    }
+
+    
+  }
+
+  &__social {
+    display: block;
+    color: vars.$secondary;
+    margin-bottom: 1rem;
+  }
+
+  &__logo {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    & path {
+      fill: darken($color: vars.$primary, $amount: 10);
+    }
+  }
+}

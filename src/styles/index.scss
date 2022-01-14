@@ -1,7 +1,9 @@
 @use './vars';
 
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Nunito&family=Playfair+Display&display=swap');
 :root, html {
   font-size: 18px;
+  font-family: 'Nunito', sans-serif;
 }
 
 * {
