@@ -1,7 +1,7 @@
 @use '../../styles/vars';
 
 .social {
-  background: vars.$primary;
+  background: darken($color: vars.$primary, $amount: 15);
   
   &__title {
     color: vars.$secondary;

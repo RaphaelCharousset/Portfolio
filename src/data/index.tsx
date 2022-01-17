@@ -4,7 +4,15 @@ import { frontendMentor } from './frontendMentor/frontendMentor';
 import { ghiBliApi } from './ghibliApi/GhibliApi';
 import { toutDoux } from './toutDoux/toutDoux';
 
-export const projects = [
+export const projectsForHome = [
+  canipotes,
+  toutDoux,
+  brickBreaker,
+  ghiBliApi,
+  frontendMentor
+]
+
+export const allProjects = [
   canipotes,
   toutDoux,
   brickBreaker,

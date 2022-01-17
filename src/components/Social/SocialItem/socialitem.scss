@@ -13,15 +13,18 @@
 
     .social-item__social, .social-item__content {
       color: black;
+      font-weight: bold;
     }
-
-    
   }
 
   &__social {
     display: block;
     color: vars.$secondary;
     margin-bottom: 1rem;
+  }
+
+  &__content {
+    // color: vars.$writing;
   }
 
   &__logo {
@@ -31,7 +34,7 @@
     transform: translate(0, -50%);
 
     & path {
-      fill: darken($color: vars.$primary, $amount: 10);
+      fill: darken($color: vars.$primary, $amount: 6);
     }
   }
 }

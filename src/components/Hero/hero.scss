@@ -15,10 +15,22 @@
     font-size: 3rem;
 
     &__part2 {
-      color: vars.$secondary;
-      font-size: 6rem;
-      font-family: 'Playfair Display', serif;
-      // font-family: 'Courgette', cursive;
+      font-size: 7rem;
     }
+  }
+  
+  &__letter {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    padding: 0 2px;
+    color: vars.$secondary;
+    // color: vars.$primary;
+    // text-shadow: 0px 0px 20px vars.$secondary;
+    transition: all .2s ease;
+
+    // &:hover {
+    //   color: vars.$secondary;
+    //   text-shadow: none;
+    // }
   }
 }

@@ -1,18 +1,19 @@
-import { projects } from './../../data/index';
+import { projectsForHome } from './../../data/index';
 import { SingleProject } from './SingleProject/SingleProject';
 import { createRef, MouseEvent, useState, useEffect } from 'react';
 import './projectshome.scss'
+import { NavLink } from 'react-router-dom';
 
 export const ProjectsHome = () => {
   useEffect(() => {
-    projects.sort((a, b) => b.year - a.year)
+    projectsForHome.sort((a, b) => b.year - a.year)
   }, [])
   
   const gap = 36
   const ref = createRef()
   const [position, setPosition] = useState(0)
   const [selected, setSelected] = useState(0)
-  
+
   const handleClick: (e: MouseEvent<HTMLButtonElement>) => void = (e) => {
     const width: number = ref.current.offsetWidth
     const index: number = e.target.value
@@ -32,7 +33,7 @@ export const ProjectsHome = () => {
             gap: `${gap}px`
           }}
         >
-          {projects.map((project, index) => 
+          {projectsForHome.map((project, index) => 
               <SingleProject
                 key={index} 
                 {...project}
@@ -43,8 +44,8 @@ export const ProjectsHome = () => {
       </div>
 
       <div className="projects__buttons">
-        {projects.map((_, index) => (
-          index < (projects.length) &&
+        {projectsForHome.map((_, index) => (
+          index < (projectsForHome.length) &&
           <button
             value={index}
             key={index}
@@ -54,7 +55,7 @@ export const ProjectsHome = () => {
         ))}
       </div>
       
-      {/* <NavLink to="/projects">tous les projets</NavLink> */}
+      <NavLink to="/projects">tous les projets</NavLink>
     </section>
   )
 }

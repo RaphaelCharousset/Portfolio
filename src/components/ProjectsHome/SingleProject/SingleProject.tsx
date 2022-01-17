@@ -1,10 +1,10 @@
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 import Github from '../../../assets/websiteIcons/Github';
 import Web from '../../../assets/websiteIcons/Web';
 import { Project } from './../../../interfaces/Project';
 import './singleProject.scss'
 
-export const SingleProject = forwardRef((
+export const SingleProject = memo(forwardRef((
   {name, year, coverImg, coverImgAlt, stack, ghLink, urlLink, description}: Project,
   ref
 ) => (
@@ -39,4 +39,4 @@ export const SingleProject = forwardRef((
       </footer>
     </div>
   </article>
-))
+)))
