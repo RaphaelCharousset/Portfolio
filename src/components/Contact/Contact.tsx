@@ -1,37 +1,40 @@
-import emailjs from '@emailjs/browser';
+import { init, send } from '@emailjs/browser';
 import { useState } from "react";
+import { emailJSInfos } from '../../secret/ids';
 import Field from './Field';
 
 const Contact = () => {
   console.log('render parent');
+  const { serviceId,templateId,userId } = emailJSInfos
+  init(userId)
   
-  const [name, setName] = useState("");
+  const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [failed, setFailed] = useState(false)
 
   const handleSubmit : (e: Event) => void = e => {
-    e.preventDefault();
     console.log(e);
-    
-    sendFeedback("***TEMPLAYE_ID***", {
-      name,
-      email,
-      message,
-    });
-  };
+    e.preventDefault();
 
-  const sendFeedback = (templateId, variables) => {
-    emailjs
-      .send("gmail", templateId, variables)
+    const templateParams = {
+      fullname,
+      email,
+      message
+    }
+
+    send(serviceId, templateId, templateParams)
       .then((res) => {
-        console.log('message sent with success !');
-        setName("");
+        console.log('message sent with success !', res.status, res.text);
+        setFullname("");
         setEmail("");
         setMessage("");
       })
       .catch(
-        (err) => setFailed(true)
+        (err) => {
+          console.error('Failed ', err);
+          setFailed(true)
+        }
       )
   };
 
@@ -44,9 +47,9 @@ const Contact = () => {
       <Field 
         type="text"
         name="name"
-        setState={setName}
+        setState={setFullname}
         placeholder="Nom prénom"
-        value={name}
+        value={fullname}
       />
       <Field 
         type="email"
