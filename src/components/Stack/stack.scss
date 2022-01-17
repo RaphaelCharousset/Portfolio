@@ -3,6 +3,10 @@
 .stack {
   background: vars.$primary;
   padding-bottom: 4rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &__title {
     color: vars.$secondary;

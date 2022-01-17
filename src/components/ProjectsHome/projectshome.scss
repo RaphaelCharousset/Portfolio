@@ -1,6 +1,10 @@
 @use '../../styles/vars';
 
 .projects {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: vars.$alternative-bg;
   color: vars.$primary;
   padding-bottom: 4rem;

@@ -5,4 +5,4 @@ $grey: #8491A3; // Light Slate Gray
 $brown: #8E6C88; // Chinese Violet
 $writing: #fff; //white
 
-$alternative-bg: lighten($color: $grey, $amount: 20);
+$alternative-bg: darken($color: $primary, $amount: 9);;

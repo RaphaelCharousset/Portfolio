@@ -51,10 +51,11 @@
 
   &__contact-button {
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    border-radius: 5px;
+    left: -1px;
+    right: -1px;
+    top: -1px;
+    bottom: -1px;
     transform: scale(0);
     background: vars.$secondary;
     transition: transform .4s ease-out;
