@@ -74,7 +74,7 @@ const Contact = () => {
       )
   }
 
-  const handleSubmit : (e: Event) => void = e => {
+  const handleSubmit : (e: React.SyntheticEvent<HTMLFormElement, FormEvent<HTMLFormElement>>) => void = (e) => {
     e.preventDefault()
 
     const templateParams = { 
@@ -153,7 +153,6 @@ const Contact = () => {
               </div>
             )}
           </div>
-
 
         {mailSent && (
           <div className="contact-form__success">
