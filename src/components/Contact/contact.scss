@@ -3,4 +3,113 @@
 .contact {
   min-height: 100vh;
   background: vars.$primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rem;
+
+  &-form {
+    flex: 1;
+
+    fieldset {
+      border: 1px solid vars.$secondary;
+      padding: 5rem;
+      position: relative;
+    }
+
+    &__legend {
+      padding: 0 5px;
+
+      &__title {
+        padding: 0;
+      }
+    }
+
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2rem;
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        min-width: 300px;
+      }
+
+      &__message {
+        flex: 1;
+      }
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+
+      &__btn {
+        font-size: 1.2rem;
+        font-family: 'Playfair Display', serif;
+        background: none;
+        border: 1px solid vars.$secondary;
+        color: vars.$secondary;
+        padding: .5rem 1rem;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all .5s ease;
+
+        &:hover {
+          box-shadow: 7px 7px 0px vars.$secondary;
+        }
+      }
+
+      &__error {
+        position: absolute;
+        top: calc(100% + 1rem);
+        right: 0;
+        color: vars.$error;
+      }
+    }
+
+    &__success {
+      position: absolute;
+      bottom: -3rem;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      animation: slideFromBottom 2s forwards;
+      
+      &__content {
+        padding: 1rem 0;
+        width: 80%;
+        border: 1px solid vars.$light;
+        border-radius: 3px;
+        text-align: center;
+        background: vars.$light;
+        color: vars.$primary;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@keyframes slideFromBottom {
+  from {
+    bottom: -3rem;
+    opacity: 0;
+  } 
+  20% {
+    bottom: 1rem;
+    opacity: 1;
+  }
+  90% {
+    bottom: 1rem;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

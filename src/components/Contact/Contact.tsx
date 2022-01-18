@@ -1,84 +1,172 @@
-import { init, send } from '@emailjs/browser';
-import { useState } from "react";
-import { emailJSInfos } from '../../secret/ids';
-import Field from './Field';
+import { init, send } from '@emailjs/browser'
+import { useState } from "react"
+import { emailJSInfos } from '../../secret/ids'
+import Field from './Field/Field'
+
+import './contact.scss'
 
 const Contact = () => {
-  console.log('render parent');
   const { serviceId,templateId,userId } = emailJSInfos
   init(userId)
   
-  const [fullname, setFullname] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [failed, setFailed] = useState(false)
+  const [fullname, setFullname] = useState("")
+  const [fullnameIsErr, setFullnameIsErr] = useState('')
+  const [email, setEmail] = useState("")
+  const [emailIsErr, setEmailIsErr] = useState('')
+  const [message, setMessage] = useState("")
+  const [messageIsErr, setMessageIsErr] = useState('')
 
-  const handleSubmit : (e: Event) => void = e => {
-    console.log(e);
-    e.preventDefault();
+  const [failed, setFailed] = useState({
+    isFailed: false,
+    message: '',
+  })
 
-    const templateParams = {
-      fullname,
-      email,
-      message
+  const [isLoading, setIsLoading] = useState(false)
+  const [mailSent, setMailSent] = useState(false)
+
+  const checkFields : () => boolean = () => {
+    const regexp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+    const emailMatchRegexp = email.match(regexp)
+    const oneFieldIsEmpty = fullname === '' || email === '' || message === ''
+    
+    if (fullname === '') setFullnameIsErr('Ce champ ne peut être vide')
+    else setFullnameIsErr('')
+
+    if (email === '' || emailMatchRegexp === null) {
+      if (email === '' ) setEmailIsErr('Ce champ ne peut être vide')
+      else setEmailIsErr('Veuillez entrer une adresse mail valide')
     }
+    else setEmailIsErr('')
 
+    if (message === '') setMessageIsErr('Ce champ ne peut être vide')
+    else if (message.length < 20) setMessageIsErr(`Veuillez entre message d'au moins 20 caractères. ${message.length} caractères actuellement.`)
+    else setMessageIsErr('')
+    
+    if (oneFieldIsEmpty === true || emailMatchRegexp === null || message.length < 20) {
+      setFailed({
+        isFailed: true,
+        message: 'Veuillez vérifier vos informations'
+      })
+      return false
+    } else {
+      return true
+    }
+  }
+
+  const sendEmail : ( params: {[key:string] : string} ) => void = (templateParams) => {
     send(serviceId, templateId, templateParams)
       .then((res) => {
-        console.log('message sent with success !', res.status, res.text);
-        setFullname("");
-        setEmail("");
-        setMessage("");
+        console.log('mail sent with success : ', res.status, res.text)
+        setFullname("")
+        setEmail("")
+        setMessage("")
+        setFailed({isFailed: false, message: ''})
+        setMailSent(true)
       })
       .catch(
         (err) => {
-          console.error('Failed ', err);
-          setFailed(true)
+          console.error('Failed to send email : ', err)
+          setFailed({
+            isFailed: true,
+            message: "Une erreur s'est produite, veuillez réessayer."
+          })
         }
       )
-  };
+  }
+
+  const handleSubmit : (e: Event) => void = e => {
+    e.preventDefault()
+
+    const templateParams = { 
+      fullname, 
+      email, 
+      message
+    }
+
+    const formIsOk = checkFields()
+
+    if (formIsOk) {
+      sendEmail(templateParams)
+    }
+    else console.log('not sending');
+  } 
 
   return (
-    <form 
-      className="contact-form"
-      onSubmit={handleSubmit}
-    >
-      <h2>Contactez-nous</h2>
-      <Field 
-        type="text"
-        name="name"
-        setState={setFullname}
-        placeholder="Nom prénom"
-        value={fullname}
-      />
-      <Field 
-        type="email"
-        name="mail"
-        setState={setEmail}
-        placeholder="mail"
-        value={email}
-      />
-      <Field 
-        type="text"
-        name="text"
-        setState={setMessage}
-        placeholder="Votre message"
-        value={message}
-      />
+    <section className="contact">
+      <form 
+        className="contact-form"
+        onSubmit={handleSubmit}
+        >
 
-      <button
-        type='submit'
-      >
-        Envoyer
-      </button>
+        <fieldset>
 
-      {failed && (
-        <div className="form-message">
-          Une erreur s'est produite, veuillez réessayer.
-        </div>
-      )}
-    </form>
-  );
-};
+          <legend className='contact-form__legend'>
+            <h2 className='contact-form__legend__title'>
+              Laissez-moi un message
+            </h2>
+          </legend>
 
-export default Contact;
+          <div className="contact-form__container">
+            <div className="contact-form__container__info">
+              <Field name="name"
+                type="text"
+                setState={setFullname}
+                label="Nom & Prénom"
+                value={fullname}
+                isTextarea={false}
+                errorMsg={fullnameIsErr}
+              />
+
+              <Field name="mail"
+                type="email"
+                setState={setEmail}
+                label="Email"
+                value={email}
+                isTextarea={false}
+                errorMsg={emailIsErr}
+              />
+            </div>
+      
+            <div className="contact-form__container__message">
+              <Field name="text"
+                type="text"
+                setState={setMessage}
+                label="Votre message"
+                value={message}
+                isTextarea={true}
+                errorMsg={messageIsErr}
+              />
+            </div>
+          </div>
+
+          <div className="contact-form__footer">
+
+            <button type='submit'
+              className='contact-form__footer__btn'
+            >
+              {isLoading ? 'en cours' : 'Envoyer'}
+            </button>
+
+            {failed.isFailed && (
+              <div className="contact-form__footer__error">
+                {failed.message}
+              </div>
+            )}
+          </div>
+
+
+        {mailSent && (
+          <div className="contact-form__success">
+            <span className="contact-form__success__content">
+              Message envoyé !
+            </span>
+          </div>
+        )} 
+        </fieldset>
+
+      </form>
+    </section>
+  )
+}
+
+export default Contact
