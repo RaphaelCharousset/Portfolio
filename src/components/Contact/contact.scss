@@ -10,8 +10,17 @@
 
   &-form {
     flex: 1;
+    position: relative;
 
+    &__animation {
+      position: absolute;
+      bottom: calc(100% - .5rem);
+      left: 0;
+      right: 0;
+    }
+    
     fieldset {
+      background: vars.$alternative-bg;
       border: 1px solid vars.$secondary;
       padding: 5rem;
       position: relative;
@@ -49,18 +58,25 @@
       position: relative;
 
       &__btn {
-        font-size: 1.2rem;
-        font-family: 'Playfair Display', serif;
         background: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border: 1px solid vars.$secondary;
-        color: vars.$secondary;
-        padding: .5rem 1rem;
+        width: 130px;
+        height: 50px;
         border-radius: 3px;
         cursor: pointer;
         transition: all .5s ease;
-
+        
         &:hover {
           box-shadow: 7px 7px 0px vars.$secondary;
+        }
+        
+        span {
+          font-size: 1.2rem;
+          font-family: 'Playfair Display', serif;
+          color: vars.$secondary;
         }
       }
 

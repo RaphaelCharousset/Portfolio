@@ -49,4 +49,34 @@
       opacity: 1;
     }
   }
+
+  &__link {
+    margin-top: 2rem;
+
+    &__item {
+      padding: .5rem 1rem;
+      border: 1px solid vars.$secondary;
+      border-radius: 3px;
+      position: relative;
+      transition: all .3s ease;
+
+      &:hover {
+        padding: .5rem 2rem .5rem 1rem;
+
+        & span {
+          right: .5rem;
+          opacity: 1;
+        }
+      }
+
+      & span {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: all .3s ease;
+      }
+    }
+  }
 }

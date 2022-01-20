@@ -3,6 +3,7 @@ import { SingleProject } from './SingleProject/SingleProject';
 import { createRef, MouseEvent, useState, useEffect } from 'react';
 import './projectshome.scss'
 import { NavLink } from 'react-router-dom';
+import { Arrow } from '../../assets/others/Arrow';
 
 export const ProjectsHome = () => {
   useEffect(() => {
@@ -55,7 +56,12 @@ export const ProjectsHome = () => {
         ))}
       </div>
       
-      <NavLink to="/projects">tous les projets</NavLink>
+      <div className="projects__link">
+        <NavLink to="/projects" className='projects__link__item'>
+          Tous les projets 
+          <span><Arrow /></span>
+        </NavLink>
+      </div>
     </section>
   )
 }

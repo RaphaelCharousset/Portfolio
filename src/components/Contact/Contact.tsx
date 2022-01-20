@@ -2,8 +2,12 @@ import { init, send } from '@emailjs/browser'
 import { useState } from "react"
 import { emailJSInfos } from '../../secret/ids'
 import Field from './Field/Field'
+import Loader from '../Loader/Loader'
 
 import './contact.scss'
+import { MailBox } from '../../assets/contact/MailBox'
+import { Mail } from '../../assets/contact/Mail'
+import MailAnimation from './MailAnimation/MailAnimation'
 
 const Contact = () => {
   const { serviceId,templateId,userId } = emailJSInfos
@@ -54,6 +58,7 @@ const Contact = () => {
   }
 
   const sendEmail : ( params: {[key:string] : string} ) => void = (templateParams) => {
+    setIsLoading(true)
     send(serviceId, templateId, templateParams)
       .then((res) => {
         console.log('mail sent with success : ', res.status, res.text)
@@ -62,6 +67,7 @@ const Contact = () => {
         setMessage("")
         setFailed({isFailed: false, message: ''})
         setMailSent(true)
+        setIsLoading(false)
       })
       .catch(
         (err) => {
@@ -70,11 +76,12 @@ const Contact = () => {
             isFailed: true,
             message: "Une erreur s'est produite, veuillez réessayer."
           })
+          setIsLoading(false)
         }
       )
   }
 
-  const handleSubmit : (e: React.SyntheticEvent<HTMLFormElement, FormEvent<HTMLFormElement>>) => void = (e) => {
+  const handleSubmit : (e: React.SyntheticEvent<HTMLFormElement, React.FormEvent<HTMLFormElement>>) => void = (e) => {
     e.preventDefault()
 
     const templateParams = { 
@@ -99,6 +106,9 @@ const Contact = () => {
         >
 
         <fieldset>
+          <div className="contact-form__animation">
+            <MailAnimation />
+          </div>
 
           <legend className='contact-form__legend'>
             <h2 className='contact-form__legend__title'>
@@ -144,7 +154,11 @@ const Contact = () => {
             <button type='submit'
               className='contact-form__footer__btn'
             >
-              {isLoading ? 'en cours' : 'Envoyer'}
+              {isLoading ? (
+                <Loader />
+              ) : (
+                <span>Envoyer</span>
+              )}
             </button>
 
             {failed.isFailed && (
