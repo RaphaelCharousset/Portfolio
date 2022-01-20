@@ -1,3 +1,4 @@
+import { WaveOne } from '../../assets/waves/waveOne'
 import './aboutme.scss'
 
 export const AboutMe = () => {
@@ -20,6 +21,14 @@ export const AboutMe = () => {
         <p className='about__container__goal'>
           Je cherche à mettre en pratique mes compétences, continuer de grandir et partager mon dynamisme au quotidien.
         </p>
+      </div>
+
+      <div className="about__clouds">
+        <div className="about__clouds__item cloudx1"></div>
+        <div className="about__clouds__item cloudx2"></div>
+        <div className="about__clouds__item cloudx3"></div>
+        <div className="about__clouds__item cloudx4"></div>
+        <div className="about__clouds__item cloudx5"></div>
       </div>
 
     </section>
