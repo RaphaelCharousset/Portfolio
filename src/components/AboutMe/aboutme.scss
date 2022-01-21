@@ -8,7 +8,6 @@
   background: vars.$alternative-bg;
   padding-bottom: 5rem;
   overflow: hidden;
-
   position: relative;
 
   &__title {
@@ -16,11 +15,22 @@
   }
   
   &__container {
-    margin-bottom: 2rem;
     line-height: 1.2;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
+    & p {
+      width: 60%;
+    }
+
+    &__testament, &__conviction {
+      align-self: flex-start;
+    }
+
+    &__certification, &__goal {
+      align-self: flex-end;
+    }
     
     &__testament {
       font-size: 1rem;

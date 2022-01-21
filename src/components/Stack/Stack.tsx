@@ -10,6 +10,8 @@ import { PsqlLogo } from '../../assets/stackLogo/backend/PsqlLogo'
 import { FirebaseLogo } from '../../assets/stackLogo/backend/FirebaseLogo'
 import { StackSection } from '../../interfaces/StackSection'
 import './stack.scss'
+import { useEffect, useRef } from 'react'
+import { observer } from '../../functions/appearOnScroll'
 
 export const Stack = () => {
   const { logoColor, logoSize } : { logoColor: string, logoSize: string } = {
@@ -40,11 +42,19 @@ export const Stack = () => {
     ]
   }
 
+  const container = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (container.current) {
+      observer.observe(container.current)
+    }
+  }, [])
+
   return (
     <section className='stack'>
       <h2 className='stack__title'>Mes compétences</h2>
       
-      <div className="stack__sections">
+      <div className="stack__sections reveal-bottom" ref={container}>
         <Section
           title={frontSection.title}
           content={frontSection.content}
@@ -55,6 +65,7 @@ export const Stack = () => {
           title={backSection.title}
           content={backSection.content}
           icons={backSection.icons}
+
         />
       </div>
       

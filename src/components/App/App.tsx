@@ -1,5 +1,4 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
-import './App.scss'
 import { Header } from '../Header/Header';
 import { Hero } from '../Hero/Hero';
 import { Stack } from '../Stack/Stack';
@@ -9,6 +8,7 @@ import { Social } from '../Social/Social';
 import Contact from './../Contact/Contact';
 import { ProjectPage } from '../ProjectPage/ProjectPage';
 import { useEffect } from 'react';
+import './App.scss'
 
 const App = () => {
   const { pathname } = useLocation()
