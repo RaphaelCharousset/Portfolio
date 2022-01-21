@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react'
+import { observer } from '../../functions/appearOnScroll'
 import { CodingameLogo } from '../../assets/socialLogo/CodingameLogo'
 import { GithubLogo } from '../../assets/socialLogo/GithubLogo'
 import { LinkedinLogo } from '../../assets/socialLogo/LinkedinLogo'
@@ -8,11 +10,23 @@ import SocialItem from './SocialItem/SocialItem'
 import './social.scss'
 
 export const Social = () => {
+  const contacts = useRef<HTMLParagraphElement>(null)
+  const websites = useRef<HTMLParagraphElement>(null)
+
+  useEffect(() => {
+    if (contacts.current) {
+      observer.observe(contacts.current)
+    }
+    if (websites.current) {
+      observer.observe(websites.current)
+    }
+  }, [])
+  
   return (
     <section className='social'>
       <h2 className='social__title'>Gardons le contact !</h2>
 
-      <div className="social__contacts">
+      <div className="social__contacts reveal-bottom" ref={contacts}>
       <SocialItem
           social='Téléphone'
           href='tel:0676896496'
@@ -28,7 +42,7 @@ export const Social = () => {
         />
       </div>
 
-      <div className="social__websites">
+      <div className="social__websites reveal-bottom" ref={websites}>
         <SocialItem
           social='LinkedIn'
           href='https://www.linkedin.com/in/raphaelcharousset/'

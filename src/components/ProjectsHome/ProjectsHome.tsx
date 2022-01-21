@@ -1,12 +1,28 @@
 import { projectsForHome } from './../../data/index';
 import { SingleProject } from './SingleProject/SingleProject';
-import { createRef, MouseEvent, useState, useEffect } from 'react';
+import { createRef, MouseEvent, useState, useEffect, useRef } from 'react';
 import './projectshome.scss'
 import { NavLink } from 'react-router-dom';
 import { Arrow } from '../../assets/others/Arrow';
+import { observer } from '../../functions/appearOnScroll';
 
 export const ProjectsHome = () => {
+  
+  const container = useRef<HTMLParagraphElement>(null)
+  const buttons = useRef<HTMLParagraphElement>(null)
+  const link = useRef<HTMLParagraphElement>(null)
+
   useEffect(() => {
+    if (container.current) {
+      observer.observe(container.current)
+    }
+    if (buttons.current) {
+      observer.observe(buttons.current)
+    }
+    if (link.current) {
+      observer.observe(link.current)
+    }
+
     projectsForHome.sort((a, b) => b.year - a.year)
   }, [])
   
@@ -26,7 +42,7 @@ export const ProjectsHome = () => {
     <section className='projects'>
       <h2 className='projects__title'>Mes réalisations</h2>
 
-      <div className="projects__container">
+      <div className="projects__container reveal-bottom" ref={container}>
         <div
           className="projects__container__slider"
           style={{ 
@@ -44,7 +60,7 @@ export const ProjectsHome = () => {
         </div>
       </div>
 
-      <div className="projects__buttons">
+      <div className="projects__buttons reveal-bottom" ref={buttons}>
         {projectsForHome.map((_, index) => (
           index < (projectsForHome.length) &&
           <button
@@ -56,7 +72,7 @@ export const ProjectsHome = () => {
         ))}
       </div>
       
-      <div className="projects__link">
+      <div className="projects__link reveal-bottom" ref={link}>
         <NavLink to="/projects" className='projects__link__item'>
           Tous les projets 
           <span><Arrow /></span>
