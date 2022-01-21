@@ -10,8 +10,8 @@ import SocialItem from './SocialItem/SocialItem'
 import './social.scss'
 
 export const Social = () => {
-  const contacts = useRef<HTMLParagraphElement>(null)
-  const websites = useRef<HTMLParagraphElement>(null)
+  const contacts = useRef<HTMLDivElement>(null)
+  const websites = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (contacts.current) {

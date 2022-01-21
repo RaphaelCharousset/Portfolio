@@ -1,11 +1,18 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { allProjects } from '../../data'
+import { observer } from '../../functions/appearOnScroll'
 import { SingleProject } from '../ProjectsHome/SingleProject/SingleProject'
 import './projectpage.scss'
 
 export const ProjectPage = () => {
+  const announcer = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     allProjects.sort((a, b) => b.year - a.year)
+
+    if (announcer.current) {
+      observer.observe(announcer.current)
+    }
   }, [])
 
   return (
@@ -16,7 +23,7 @@ export const ProjectPage = () => {
           Mes réalisations
         </h2>
 
-        <p>
+        <p className=' reveal-bottom' ref={announcer}>
           Voici une sélection des projets auxquels j'ai participé.
         </p>
       </header>
