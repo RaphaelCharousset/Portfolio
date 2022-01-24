@@ -1,4 +1,5 @@
 @use '../../styles/vars';
+@import '../../styles/mixins.scss';
 
 .contact {
   min-height: 100vh;
@@ -7,14 +8,19 @@
   justify-content: center;
   align-items: center;
   padding-top: 5rem;
+  overflow: hidden;
 
   &-form {
     flex: 1;
     position: relative;
 
+    @include s-screen {
+      padding-bottom: 4rem;
+    }
+
     &__animation {
       position: absolute;
-      bottom: calc(100% - .5rem);
+      top: 0;
       left: 0;
       right: 0;
     }
@@ -24,13 +30,25 @@
       border: 1px solid vars.$secondary;
       padding: 5rem;
       position: relative;
+
+      @include s-screen {
+        padding: 1rem;
+      }
     }
 
     &__legend {
       padding: 0 5px;
 
+      @include s-screen {
+        padding: 1rem 5px;
+      }
+
       &__title {
         padding: 0;
+
+        @include s-screen {
+          font-size: 1.3rem;
+        }
       }
     }
 
@@ -40,11 +58,19 @@
       gap: 2rem;
       margin-bottom: 2rem;
 
+      @include s-screen {
+        flex-direction: column;
+      }
+
       &__info {
         display: flex;
         flex-direction: column;
         gap: 3rem;
         min-width: 300px;
+        
+        @include s-screen {
+          gap: 2rem;
+        }
       }
 
       &__message {

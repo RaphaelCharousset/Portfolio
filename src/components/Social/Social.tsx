@@ -5,13 +5,14 @@ import { GithubLogo } from '../../assets/socialLogo/GithubLogo'
 import { LinkedinLogo } from '../../assets/socialLogo/LinkedinLogo'
 import { MailLogo } from '../../assets/socialLogo/MailLogo'
 import { PhoneLogo } from '../../assets/socialLogo/PhoneLogo'
-import SocialItem from './SocialItem/SocialItem'
 
 import './social.scss'
+import { NavLink } from 'react-router-dom'
 
 export const Social = () => {
   const contacts = useRef<HTMLDivElement>(null)
   const websites = useRef<HTMLDivElement>(null)
+  const credits = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (contacts.current) {
@@ -20,6 +21,9 @@ export const Social = () => {
     if (websites.current) {
       observer.observe(websites.current)
     }
+    if (credits.current) {
+      observer.observe(credits.current)
+    }
   }, [])
   
   return (
@@ -27,40 +31,35 @@ export const Social = () => {
       <h2 className='social__title'>Gardons le contact !</h2>
 
       <div className="social__contacts reveal-bottom" ref={contacts}>
-      <SocialItem
-          social='Téléphone'
-          href='tel:0676896496'
-          content='06.76.98.64.96'
-          logo={<PhoneLogo />}
-        />
-
-        <SocialItem
-          social='Email'
-          href='mailto:raphael.charousset@gmail.com'
-          content='raphael.charousset@gmail.com'
-          logo={<MailLogo />}
-        />
+        <div className='social__contacts__item'>
+          <PhoneLogo />
+          06.76.89.64.96
+        </div>
+        <a href='mailto:raphael.charousset@gmail.com' className='social__contacts__item'>
+          <MailLogo />
+          raphael.charousset@gmail.com
+        </a>
       </div>
 
       <div className="social__websites reveal-bottom" ref={websites}>
-        <SocialItem
-          social='LinkedIn'
-          href='https://www.linkedin.com/in/raphaelcharousset/'
-          content='linkedin.com/in/raphaelcharousset'
-          logo={<LinkedinLogo />}
-        />
-        <SocialItem
-          social='Github'
-          href='https://github.com/RaphaelCharousset'
-          content='github.com/RaphaelCharousset'
-          logo={<GithubLogo />}
-        />
-        <SocialItem
-          social='CodinGame'
-          href='https://www.codingame.com/profile/924d621de97f78b756a0e1cefdc5f1e76161924'
-          content='Un Clash of Code ?'
-          logo={<CodingameLogo />}
-        />
+        <div className="social__websites__items">
+          <a href='https://www.linkedin.com/in/raphaelcharousset/' target='blanck'>
+            <LinkedinLogo />
+          </a>
+          <a href='https://github.com/RaphaelCharousset' target='blanck'>
+            <GithubLogo />
+          </a>
+          <a href='https://www.codingame.com/profile/924d621de97f78b756a0e1cefdc5f1e76161924' target='blanck'>
+            <CodingameLogo />
+          </a>
+        </div>
+        <NavLink
+          to="/contact"
+          className='header-nav-ul__list__contact'  
+        >
+          <span className="header-nav__contact-button"></span>
+          Me contacter
+        </NavLink>
       </div>
 
     </section>

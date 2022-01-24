@@ -1,9 +1,14 @@
 @use './vars';
+@import './mixins.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Nunito&family=Playfair+Display&display=swap');
 :root, html {
   font-size: 18px;
   font-family: 'Nunito', sans-serif;
+
+  @include m-screen {
+   font-size: 16px;
+  }
 }
 
 * {
@@ -14,6 +19,10 @@
 // center content
 .header, .hero, .about, .stack, .projects, .social, .contact-form {
   padding: 0 calc(50vw - 570px);
+
+  @include m-screen {
+    padding: 0 2rem;
+  }
 }
 
 h2 {

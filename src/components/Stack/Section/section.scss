@@ -1,9 +1,14 @@
 @use '../../../styles/vars';
+@import './../../../styles/mixins.scss';
 
 .stack-section {
   width: 40%;
   border: 1px solid rgba($color: vars.$secondary, $alpha: .5);
   position: relative;
+
+  @include s-screen {
+    width: 100%;
+  }
 
   &::before {
     content: '';
@@ -37,7 +42,10 @@
     &:hover {
       color: vars.$secondary;
     }
-    color: inherit;
+
+    @include s-screen {
+      padding: 1rem;
+    }
   }
 
   &__icons {

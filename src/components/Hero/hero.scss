@@ -1,4 +1,5 @@
 @use '../../styles/vars';
+@import '../../styles/mixins.scss';
 
 .hero {
   min-height: 100vh;
@@ -7,23 +8,103 @@
   justify-content: center;
   align-content: center;
   background: vars.$primary;
-
+  
   &__text {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     font-size: 3rem;
 
+    @include s-screen {
+      gap: 2rem;
+      font-size: 2rem;
+      line-height: 1.2;
+      padding-top: 5rem;
+    }
+
     &__part2 {
-      font-size: 7rem;
+      position: relative;
+
+      @include s-screen {
+        font-size: 2.7rem;
+      }
+
+      & h1, & h2 {
+        font-size: 7rem;
+        font-family: 'Playfair Display', serif;
+        font-family: "Courgette", cursive;
+        padding: 0;
+      }
+      
+      & h1 {
+        opacity: 0;
+      }
+
+      & .hero__animation {
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        &__wrapper {
+          position: relative;
+          height: 100%;
+
+          & h2 {
+            position: absolute;
+            left: 0;
+            
+            &:nth-child(1), &:nth-child(2) {
+              top: 0;
+            }
+
+            &:nth-child(3), &:nth-child(4) {
+              bottom: 0;
+            }
+  
+            &:nth-child(2n) {
+              color: transparent;
+              -webkit-text-stroke: 2px vars.$secondary;
+            }
+            
+            &:nth-child(2n + 1) {
+              color: vars.$secondary;
+              animation: waveInText 4s ease-in-out infinite;
+            }
+          }
+        }
+      }
     }
   }
-  
-  &__letter {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    padding: 0 2px;
-    color: vars.$secondary;
-    transition: all .2s ease;
+}
+
+@keyframes waveInText {
+  0%, 100% {
+    clip-path: polygon(
+      0% 0%,
+      16% 0%,
+      33% 0%,
+      54% 0%,
+      70% 0%,
+      84% 0%,
+      100% 0%,
+      110% 0%,
+      0% 0%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 90%,
+      15% 95%,
+      34% 96%,
+      51% 92%,
+      67% 80%,
+      84% 75%,
+      100% 76%,
+      110% 0%,
+      0% 0%
+    );
   }
 }

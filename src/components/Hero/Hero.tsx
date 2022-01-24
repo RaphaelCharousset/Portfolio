@@ -3,9 +3,6 @@ import { observer } from '../../functions/appearOnScroll'
 import './hero.scss'
 
 export const Hero = () => {
-  const name = 'Raphaël Charousset'
-
-  
   const partOne = useRef<HTMLParagraphElement>(null)
   const partTwo = useRef<HTMLParagraphElement>(null)
   const partThree = useRef<HTMLParagraphElement>(null)
@@ -29,16 +26,21 @@ export const Hero = () => {
             Bonjour, je m'appelle
           </div>
 
-          <h1 className="hero__text__part2 reveal-hero-two" ref={partTwo}>
-            {name.split('').map((letter, idx) => (
-              <span className='hero__letter' key={idx}>
-                {letter}
-              </span>
-            ))}
-          </h1>
+          <div className="hero__text__part2 reveal-hero-two" ref={partTwo}>
+            <h1>Raphaël <br /> Charousset</h1>
+
+            <div className="hero__animation">
+              <div className="hero__animation__wrapper">
+                <h2>Raphaël</h2>
+                <h2>Raphaël</h2>
+                <h2>Charousset</h2>
+                <h2>Charousset</h2>
+              </div>
+            </div>
+          </div>
 
           <div className="hero__text__part3 reveal-hero-three" ref={partThree}>
-            Je suis Développeur Web Fullstack JavaScript
+            Je suis <strong>Développeur Web Fullstack JavaScript</strong>
           </div>
         </div>
     </section>

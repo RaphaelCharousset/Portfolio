@@ -1,23 +1,66 @@
 @use '../../styles/vars';
+@import '../../styles/mixins.scss';
 
 .social {
   background: darken($color: vars.$primary, $amount: 15);
   overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25%;
   
   &__title {
     color: vars.$secondary;
+    width: 100%;
   }
 
   &__contacts, &__websites {
-    display: flex;
     padding-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 2rem;
   }
 
   &__contacts {
-    justify-content: space-evenly;
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      transition: all .3s ease;
+      fill: vars.$writing;
+
+      &:hover {
+        fill: vars.$secondary;
+        color: vars.$secondary;
+      }
+    }
   }
 
   &__websites {
-    justify-content: space-between;
+
+    &__items {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      & a {
+        transition: all .3s ease;
+        fill: vars.$writing;
+        height: 30px;
+        display: flex;
+        align-items: center;
+
+        &:hover{
+          fill: vars.$secondary;
+          transform: translateY(-10px) scale(1.5);
+        }
+      }
+    }
+
+    & .header-nav-ul__list__contact {
+      align-self: flex-start;
+    }
   }
 }

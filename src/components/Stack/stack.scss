@@ -1,9 +1,10 @@
 @use '../../styles/vars';
+@import '../../styles/mixins.scss';
 
 .stack {
   background: vars.$primary;
   padding-bottom: 4rem;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,5 +16,10 @@
   &__sections {
     display: flex;
     justify-content: space-between;
+
+    @include s-screen {
+      flex-direction: column;
+      gap: 2rem;
+    }
   }
 }

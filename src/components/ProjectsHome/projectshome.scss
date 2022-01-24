@@ -1,7 +1,8 @@
 @use '../../styles/vars';
+@import '../../styles/mixins.scss';
 
 .projects {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,6 +43,10 @@
 
       &:last-child {
         display: none;
+
+        @include m-screen {
+          display: inline-block;
+        }
       }
     }
 

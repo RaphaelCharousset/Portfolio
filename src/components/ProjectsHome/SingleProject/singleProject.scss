@@ -1,4 +1,5 @@
 @use '../../../styles/vars';
+@import '../../../styles/mixins.scss';
 
 $project-height: 450px;
 $img-height: 330px;
@@ -11,6 +12,16 @@ $main-height: 300px;
   position: relative;
   height: $project-height;
 
+  @include m-screen {
+    min-width: 570px;
+  }
+
+  @include s-screen {
+    min-width: auto;
+    flex: 0 0 100%;
+    height: auto;
+  }
+
   &:hover {
     .single-project__header {
       transform: scale(1.2);
@@ -19,7 +30,6 @@ $main-height: 300px;
     .single-project__main {
       bottom: 0;
     }
-
   }
   
   &__header {
@@ -28,11 +38,24 @@ $main-height: 300px;
     &__img {
       width: 100%;
       height: $img-height;
+
+      @include s-screen {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
       
       & img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+
+        @include s-screen {
+          width: auto;
+          height: auto;
+          object-fit: contain;
+        }
       }
     }
   }
@@ -50,6 +73,10 @@ $main-height: 300px;
     transition: all .3s ease;
     padding: 1rem 1rem;
     overflow: hidden;
+
+    @include s-screen {
+      position: initial;
+    }
 
     &__stack {
       display: flex;

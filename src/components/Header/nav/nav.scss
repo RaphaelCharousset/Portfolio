@@ -1,9 +1,82 @@
 @use '../../../styles/vars';
+@import '../../../styles/mixins.scss';
 
 .header-nav {
+
+  @include s-screen {
+    position: relative;
+  }
+
+  &__hamburger {
+    display: none;
+
+    @include s-screen {
+      display: inline-block;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    &__wrapper {
+      width: 2rem;
+      height: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      & span {
+        height: 2px;
+        background: vars.$writing;
+        border-radius: 10px;
+        transition: all .3s ease;
+      }
+
+      & .hamburger {
+        &-1 {
+          transform: rotate(45deg);
+          transform-origin: left;
+        }
+        &-2 {
+          opacity: 0;
+        }
+        &-3 {
+          transform: rotate(-45deg);
+          transform-origin: left;
+        }
+      }
+    }
+  }
+
   &-ul {
     display: flex;
     gap: 1rem;
+
+    @include s-screen {
+      position: absolute;
+      top: 0;
+      right: -2rem;
+      width: 200px;
+      z-index: -1;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      
+      overflow: hidden;
+      height: 0;
+      transition: all .2s;
+    }
+    
+    &.visible {
+      @include s-screen {
+        background: vars.$alternative-bg;
+        border: 1px solid vars.$secondary;
+        padding: 3.5rem 1rem 2rem;
+        height: auto;
+      }
+    }
 
     &__list {
       text-transform: uppercase;
