@@ -34,9 +34,9 @@
     height: 100%;
     border-radius: 2px;
     padding: 3rem;
-    background: vars.$primary;
     position: relative;
     z-index: 1;
+    background: vars.$primary;
     color: vars.$writing;
 
     &:hover {

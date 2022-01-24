@@ -1,3 +1,6 @@
+import { useEffect, useRef } from 'react'
+import { observer } from '../../functions/appearOnScroll'
+
 import { ReactLogo } from '../../assets/stackLogo/frontend/ReactLogo'
 import { ReduxLogo } from '../../assets/stackLogo/frontend/ReduxLogo'
 import { SassLogo } from '../../assets/stackLogo/frontend/SassLogo'
@@ -9,9 +12,8 @@ import { ExpressLogo } from '../../assets/stackLogo/backend/ExpressLogo'
 import { PsqlLogo } from '../../assets/stackLogo/backend/PsqlLogo'
 import { FirebaseLogo } from '../../assets/stackLogo/backend/FirebaseLogo'
 import { StackSection } from '../../interfaces/StackSection'
+
 import './stack.scss'
-import { useEffect, useRef } from 'react'
-import { observer } from '../../functions/appearOnScroll'
 
 export const Stack = () => {
   const { logoColor, logoSize } : { logoColor: string, logoSize: string } = {
@@ -30,6 +32,8 @@ export const Stack = () => {
       <SassLogo color={logoColor} size={logoSize}/>
     ] 
   }
+  // avoid blanck in marquee
+  frontSection.icons = frontSection.icons.concat(frontSection.icons)
 
   const backSection: StackSection = {
     title: 'Backend NodeJS',
@@ -41,6 +45,8 @@ export const Stack = () => {
       <FirebaseLogo color={logoColor} size={logoSize}/>
     ]
   }
+  // avoid blanck in marquee
+  backSection.icons = backSection.icons.concat(backSection.icons)
 
   const container = useRef<HTMLDivElement>(null)
 

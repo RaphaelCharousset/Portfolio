@@ -24,7 +24,7 @@ export const ProjectPage = () => {
         </h2>
 
         <p className=' reveal-bottom' ref={announcer}>
-          Voici une sélection des projets auxquels j'ai participé.
+          Voici une sélection de projets auxquels j'ai participé.
         </p>
       </header>
 

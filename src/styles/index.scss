@@ -2,7 +2,6 @@
 @import './mixins.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Nunito&family=Playfair+Display&display=swap');
-
 ::-webkit-scrollbar {
   width: 8px;
   background: vars.$grey;
@@ -18,7 +17,6 @@
   font-size: 18px;
   font-family: 'Nunito', sans-serif;
   
-
   @include m-screen {
    font-size: 16px;
   }

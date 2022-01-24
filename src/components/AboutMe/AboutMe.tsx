@@ -31,7 +31,10 @@ export const AboutMe = () => {
 
       <div className="about__container">
         <p className="about__container__testament reveal-left" ref={testament}>
-          Vous êtes à la recherche de quelqu'un prêt à relever des défis ? <br /> Quelqu'un d'autonome mais pour qui le travail d'équipe est essentiel ? <br /> Quelqu'un qui code pour délivrer une expérience utilisateur de qualité ? <br /> Vous êtes tombé sur la bonne personne ! <br />
+          Vous êtes à la recherche de quelqu'un prêt à relever des défis ? <br /> 
+          Quelqu'un d'autonome, mais pour qui le travail d'équipe est essentiel ? <br /> 
+          Quelqu'un qui code pour délivrer une expérience utilisateur de qualité ? <br /> 
+          Vous êtes tombé sur la bonne personne ! <br />
         </p>
 
         <p className="about__container__certification reveal-right" ref={certification}>
