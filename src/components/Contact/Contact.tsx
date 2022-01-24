@@ -8,6 +8,7 @@ import MailAnimation from './MailAnimation/MailAnimation'
 
 import './contact.scss'
 import { observer } from '../../functions/appearOnScroll'
+import { checkFields } from '../../functions/checkFields'
 
 const Contact = () => {
   const { serviceId,templateId,userId } = emailJSInfos
@@ -22,53 +23,25 @@ const Contact = () => {
   
   const [failed, setFailed] = useState({
     isFailed: false,
-    message: '',
+    message: "Une erreur s'est produite, veuillez réessayer.",
   })
   
   const [isLoading, setIsLoading] = useState(false)
   const [mailSent, setMailSent] = useState(false)
   
-  const checkFields : () => boolean = () => {
-    const regexp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
-    const emailMatchRegexp = email.match(regexp)
-    const oneFieldIsEmpty = fullname === '' || email === '' || message === ''
-    
-    if (fullname === '') setFullnameIsErr('Ce champ ne peut être vide')
-    else setFullnameIsErr('')
-    
-    if (email === '' || emailMatchRegexp === null) {
-      if (email === '' ) setEmailIsErr('Ce champ ne peut être vide')
-      else setEmailIsErr('Veuillez entrer une adresse mail valide')
-    }
-    else setEmailIsErr('')
-    
-    if (message === '') setMessageIsErr('Ce champ ne peut être vide')
-    else if (message.length < 20) setMessageIsErr(`Veuillez entre message d'au moins 20 caractères. ${message.length} caractères actuellement.`)
-    else setMessageIsErr('')
-    
-    if (oneFieldIsEmpty === true || emailMatchRegexp === null || message.length < 20) {
-      setFailed({
-        isFailed: true,
-        message: 'Veuillez vérifier vos informations'
-      })
-      return false
-    } else {
-      return true
-    }
-  }
-  
   const sendEmail : ( params: {[key:string] : string} ) => void = (templateParams) => {
     setIsLoading(true)
+
     send(serviceId, templateId, templateParams)
     .then((res) => {
       console.log('mail sent with success : ', res.status, res.text)
       setFullname("")
       setEmail("")
       setMessage("")
-      setFailed({isFailed: false, message: ''})
+      setFailed(old => ({...old, isFailed: false}))
       setMailSent(true)
-      setIsLoading(false)
     })
+
     .catch(
       (err) => {
         console.error('Failed to send email : ', err)
@@ -76,43 +49,46 @@ const Contact = () => {
           isFailed: true,
           message: "Une erreur s'est produite, veuillez réessayer."
         })
-        setIsLoading(false)
       }
-      )
+    )
+
+    .finally(
+      () => setIsLoading(false)
+    )
+  }
+    
+  const handleSubmit : (e: React.SyntheticEvent<HTMLFormElement, React.FormEvent<HTMLFormElement>>) => void = (e) => {
+    e.preventDefault()
+    
+    const templateParams = { 
+      fullname, 
+      email, 
+      message
     }
     
-    const handleSubmit : (e: React.SyntheticEvent<HTMLFormElement, React.FormEvent<HTMLFormElement>>) => void = (e) => {
-      e.preventDefault()
-      
-      const templateParams = { 
-        fullname, 
-        email, 
-        message
-      }
-      
-      const formIsOk = checkFields()
-      
-      if (formIsOk) {
-        sendEmail(templateParams)
-      }
-      else console.log('not sending');
-    } 
+    const formIsOk = checkFields(email, fullname, message, setFullnameIsErr, setEmailIsErr, setMessageIsErr, setFailed)
     
-      const legend = useRef<HTMLLegendElement>(null)
-      const container = useRef<HTMLDivElement>(null)
-      const footer = useRef<HTMLDivElement>(null)
-    
-    useEffect(() => {
-      if (legend.current) {
-        observer.observe(legend.current)
-      }
-      if (container.current) {
+    if (formIsOk) {
+      sendEmail(templateParams)
+    }
+    else console.log('not sending');
+  } 
+  
+  useEffect(() => {
+    if (legend.current) {
+      observer.observe(legend.current)
+    }
+    if (container.current) {
       observer.observe(container.current)
-      }
-      if (footer.current) {
+    }
+    if (footer.current) {
       observer.observe(footer.current)
-      }
+    }
   }, [])
+
+  const legend = useRef<HTMLLegendElement>(null)
+  const container = useRef<HTMLDivElement>(null)
+  const footer = useRef<HTMLDivElement>(null)
 
   return (
     <section className="contact">

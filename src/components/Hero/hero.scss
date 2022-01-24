@@ -25,15 +25,19 @@
     &__part2 {
       position: relative;
 
-      @include s-screen {
-        font-size: 2.7rem;
-      }
-
+      
       & h1, & h2 {
         font-size: 7rem;
         font-family: 'Playfair Display', serif;
         font-family: "Courgette", cursive;
         padding: 0;
+        
+        @include m-screen {
+          // font-size: 5rem;
+        }
+        @include s-screen {
+          font-size: 3.5rem;
+        }
       }
       
       & h1 {
