@@ -24,7 +24,9 @@ $main-height: 300px;
 
   &:hover {
     .single-project__header {
-      transform: scale(1.2);
+      @include l-screen {
+        transform: scale(1.2);
+      }
     }
 
     .single-project__main {

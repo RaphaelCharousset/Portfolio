@@ -1,4 +1,5 @@
 @use '../../styles/vars';
+@import '../../styles/mixins.scss';
 
 .project-page {
   min-height: 100vh;
@@ -6,6 +7,10 @@
 
   &__header {
     padding: 10rem calc(50vw - 570px) 7rem;
+
+    @include m-screen {
+      padding: 5rem 2rem;
+    }
 
     &__title {
       color: vars.$secondary;
@@ -19,5 +24,13 @@
     gap: 3rem 0;
     padding: 3rem calc(50vw - 570px);
     background: vars.$alternative-bg;
+
+    @include m-screen {
+      justify-content: center;
+    }
+
+    @include s-screen {
+      padding: 1rem;
+    }
   }
 }
