@@ -11,6 +11,7 @@ $main-height: 300px;
   overflow: hidden;
   position: relative;
   height: $project-height;
+  cursor: initial;
 
   @include m-screen {
     min-width: 570px;

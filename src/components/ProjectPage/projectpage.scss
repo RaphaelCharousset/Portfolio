@@ -4,6 +4,7 @@
 .project-page {
   min-height: 100vh;
   background: vars.$primary;
+  cursor: none;
 
   &__header {
     padding: 10rem calc(50vw - 570px) 7rem;

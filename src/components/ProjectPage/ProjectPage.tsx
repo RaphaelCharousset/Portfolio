@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { allProjects } from '../../data'
 import { observer } from '../../functions/appearOnScroll'
+import { Cursor } from '../Cursor/Cursor'
 import { SingleProject } from '../ProjectsHome/SingleProject/SingleProject'
 import './projectpage.scss'
 
@@ -17,6 +18,7 @@ export const ProjectPage = () => {
 
   return (
     <section className='project-page'>
+      <Cursor />
       
       <header className="project-page__header">
         <h2 className="project-page__header__title">

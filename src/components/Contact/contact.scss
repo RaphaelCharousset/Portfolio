@@ -9,6 +9,7 @@
   align-items: center;
   padding-top: 5rem;
   overflow: hidden;
+  cursor: none;
 
   &-form {
     flex: 1;
@@ -30,6 +31,7 @@
       border: 1px solid vars.$secondary;
       padding: 5rem;
       position: relative;
+      cursor: initial;
 
       @include s-screen {
         padding: 1rem;
@@ -93,6 +95,7 @@
         height: 50px;
         border-radius: 3px;
         cursor: pointer;
+        
         transition: all .5s ease;
         
         &:hover {

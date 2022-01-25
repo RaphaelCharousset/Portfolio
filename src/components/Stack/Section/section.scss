@@ -5,6 +5,7 @@
   width: 40%;
   border: 1px solid rgba($color: vars.$secondary, $alpha: .5);
   position: relative;
+  cursor: initial;
 
   @include s-screen {
     width: 100%;

@@ -16,6 +16,7 @@
 
   &__container {
     overflow: hidden;
+    cursor: none;
 
     &__slider {
       display: flex;
@@ -28,6 +29,7 @@
     margin-top: 1rem;
     display: flex;
     gap: .5rem;
+    cursor: none;
 
     & button {
       width: 1.5rem;
@@ -57,6 +59,7 @@
 
   &__link {
     margin-top: 2rem;
+    cursor: none;
 
     &__item {
       padding: .5rem 1rem;

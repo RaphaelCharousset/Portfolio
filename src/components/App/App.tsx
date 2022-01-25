@@ -1,4 +1,7 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+
+// components
 import { Header } from '../Header/Header';
 import { Hero } from '../Hero/Hero';
 import { Stack } from '../Stack/Stack';
@@ -7,7 +10,7 @@ import { ProjectsHome } from '../ProjectsHome/ProjectsHome';
 import { Social } from '../Social/Social';
 import Contact from './../Contact/Contact';
 import { ProjectPage } from '../ProjectPage/ProjectPage';
-import { useEffect } from 'react';
+
 import './App.scss'
 
 const App = () => {
@@ -20,7 +23,7 @@ const App = () => {
   return (
   <div className="app">
     <Header />
-    
+
     <Routes>
       <Route path='/'
         element={<>

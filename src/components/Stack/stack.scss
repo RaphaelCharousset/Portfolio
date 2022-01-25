@@ -16,6 +16,7 @@
   &__sections {
     display: flex;
     justify-content: space-between;
+    cursor: none;
 
     @include s-screen {
       flex-direction: column;

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { observer } from '../../functions/appearOnScroll'
+import { Cursor } from '../Cursor/Cursor'
 import './hero.scss'
 
 export const Hero = () => {
@@ -21,28 +22,29 @@ export const Hero = () => {
 
   return (
     <section className='hero'>
-        <div className="hero__text">
-          <div className="hero__text__part1 reveal-hero-one" ref={partOne}>
-            Bonjour, je m'appelle
-          </div>
+      <Cursor />
+      <div className="hero__text">
+        <div className="hero__text__part1 reveal-hero-one" ref={partOne}>
+          Bonjour, je m'appelle
+        </div>
 
-          <div className="hero__text__part2 reveal-hero-two" ref={partTwo}>
-            <h1>Raphaël <br /> Charousset</h1>
+        <div className="hero__text__part2 reveal-hero-two" ref={partTwo}>
+          <h1>Raphaël <br /> Charousset</h1>
 
-            <div className="hero__animation">
-              <div className="hero__animation__wrapper">
-                <h2>Raphaël</h2>
-                <h2>Raphaël</h2>
-                <h2>Charousset</h2>
-                <h2>Charousset</h2>
-              </div>
+          <div className="hero__animation">
+            <div className="hero__animation__wrapper">
+              <h2>Raphaël</h2>
+              <h2>Raphaël</h2>
+              <h2>Charousset</h2>
+              <h2>Charousset</h2>
             </div>
           </div>
-
-          <div className="hero__text__part3 reveal-hero-three" ref={partThree}>
-            Je suis <strong>Développeur Web Fullstack JavaScript</strong>
-          </div>
         </div>
+
+        <div className="hero__text__part3 reveal-hero-three" ref={partThree}>
+          Je suis <strong>Développeur Web Fullstack JavaScript</strong>
+        </div>
+      </div>
     </section>
   )
 }

@@ -9,6 +9,7 @@ import MailAnimation from './MailAnimation/MailAnimation'
 import './contact.scss'
 import { observer } from '../../functions/appearOnScroll'
 import { checkFields } from '../../functions/checkFields'
+import { Cursor } from '../Cursor/Cursor'
 
 const Contact = () => {
   const { serviceId,templateId,userId } = emailJSInfos
@@ -92,6 +93,8 @@ const Contact = () => {
 
   return (
     <section className="contact">
+      <Cursor />
+
       <form 
         className="contact-form"
         onSubmit={handleSubmit}

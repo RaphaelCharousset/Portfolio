@@ -20,6 +20,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     gap: 2rem;
+    cursor: none;
   }
 
   &__contacts {
@@ -29,10 +30,18 @@
       gap: .5rem;
       transition: all .3s ease;
       fill: vars.$writing;
+      cursor: none;
 
       &:hover {
         fill: vars.$secondary;
         color: vars.$secondary;
+      }
+
+      &:nth-child(1) {
+        cursor: text;
+      }
+      &:nth-child(2) {
+        cursor: pointer;
       }
     }
   }
@@ -44,6 +53,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      cursor: none;
 
       & a {
         transition: all .3s ease;
