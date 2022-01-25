@@ -10,6 +10,7 @@ import { ProjectsHome } from '../ProjectsHome/ProjectsHome';
 import { Social } from '../Social/Social';
 import Contact from './../Contact/Contact';
 import { ProjectPage } from '../ProjectPage/ProjectPage';
+import { Error404 } from '../Error404/Error404';
 
 import './App.scss'
 
@@ -49,8 +50,7 @@ const App = () => {
         </>} 
       />
 
-      {/* will be 404 */}
-      {/* <Route path='*' element={<Error404 /> } />  */}
+      <Route path='*' element={<Error404 /> } /> 
 
     </Routes>
   </div>

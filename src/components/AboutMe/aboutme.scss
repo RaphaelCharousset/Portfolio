@@ -23,9 +23,15 @@
 
     & p {
       width: 60%;
+      color: rgba(255,255,255,.7);
 
       @include s-screen {
         width: 85%;
+      }
+
+      & em {
+        font-weight: bold;
+        font-size: 1.05rem;
       }
     }
 
@@ -42,6 +48,7 @@
         color: vars.$secondary;
         transition: all .3s ease;
         border-bottom: 1px solid transparent;
+        font-size: 1.15rem;
 
         &:hover {
           border-bottom: 1px solid vars.$secondary;
