@@ -2,7 +2,7 @@
 @import '../../styles/mixins.scss';
 
 .social {
-  background: darken($color: vars.$primary, $amount: 15);
+  background: vars.$very-dark-bg;
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;

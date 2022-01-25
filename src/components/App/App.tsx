@@ -23,11 +23,11 @@ const App = () => {
   
   return (
   <div className="app">
-    <Header />
 
     <Routes>
       <Route path='/'
         element={<>
+          <Header />
           <Hero />
           <AboutMe />
           <Stack />
@@ -38,6 +38,7 @@ const App = () => {
 
       <Route path='/projects' 
         element={<>
+          <Header />
           <ProjectPage />
           <Social />
         </>} 
@@ -45,12 +46,15 @@ const App = () => {
 
       <Route path='/contact' 
         element={<>
+          <Header />
           < Contact/>
           <Social />
         </>} 
       />
 
-      <Route path='*' element={<Error404 /> } /> 
+      <Route path='*'
+        element={<Error404 />}
+      /> 
 
     </Routes>
   </div>

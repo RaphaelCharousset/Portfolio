@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { memo, useEffect, useState } from "react"
 
 interface Icon {
   index: number;
@@ -12,26 +12,27 @@ const animation = (
   if (state < 0) {
     setIsHidden(true)
     stateSetter((50 + 50) * (nbIcons - 1))
+
     setTimeout(() => {
       setIsHidden(false)
-    }, 2000);
+    }, 2000)
   }
   else stateSetter(state - 50)
 }
 
-export const IconAnimation = (
+export const IconAnimation = memo((
   {index, icon, nbIcons}: Icon
   ) => {
     const [position, setPosition] = useState((50 + 50) * index)
     const [isHidden, setIsHidden] = useState(false)
-
+    
     useEffect(() => {
       animation(position, setPosition, nbIcons, setIsHidden)
     }, [])
-
+    
     setTimeout(() => {
       animation(position, setPosition, nbIcons, setIsHidden)
-    }, 2000);
+    }, 2000)
 
   return (
     <div
@@ -41,4 +42,4 @@ export const IconAnimation = (
       {icon}
     </div>
   )
-}
+})
