@@ -1,4 +1,4 @@
-import { createRef, MouseEvent, useState, useEffect, useRef } from 'react'
+import { createRef, MouseEvent, useState, useEffect, useRef, SyntheticEvent } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { projectsForHome } from './../../data/index'
@@ -20,9 +20,10 @@ export const ProjectsHome = () => {
   const [position, setPosition] = useState(0)
   const [selected, setSelected] = useState(0)
   
-  const handleClick: (e: MouseEvent<HTMLButtonElement>) => void = (e) => {
+  const handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void = (e) => {
     const width: number = ref.current?.offsetWidth || 0
-    const index: number = e.target.value
+    const index: number = e.currentTarget.tabIndex
+
     setPosition(index * (width + gap))
     setSelected(index)
   }
@@ -70,7 +71,7 @@ export const ProjectsHome = () => {
         {projectsForHome.map((_, index) => (
           index < (projectsForHome.length) &&
           <button
-            value={index}
+            tabIndex={index}
             key={index}
             onClick={handleClick}
             className={index == selected ? 'selected' : 'unselected'}

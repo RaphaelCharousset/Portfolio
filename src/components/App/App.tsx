@@ -27,7 +27,7 @@ const App = () => {
       case '/projects':
         document.title = 'Mes projets'
         break;
-      case '/projects':
+      case '/contact':
         document.title = 'Me contacter'
         break;
       default:

@@ -1,4 +1,4 @@
-import { forwardRef, memo, useEffect, useRef } from 'react';
+import { forwardRef, LegacyRef, memo, useEffect, useRef } from 'react';
 
 import { observer } from '../../../functions/appearOnScroll';
 import { Project } from './../../../interfaces/Project';
@@ -10,7 +10,7 @@ import './singleProject.scss'
 
 export const SingleProject = memo(forwardRef((
   {name, year, coverImg, coverImgAlt, stack, ghLink, urlLink, description}: Project,
-  ref
+  ref: LegacyRef<HTMLElement>
 ) => {
   const announcer = useRef<HTMLDivElement>(null)
 
