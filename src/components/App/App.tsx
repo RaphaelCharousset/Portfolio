@@ -19,6 +19,19 @@ const App = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0)
+
+    switch (pathname) {
+      case '/':
+        document.title = 'Raphaël Charousset'
+        break;
+      case '/projects':
+        document.title = 'Mes projets'
+        break;
+      default:
+        document.title = 'Me contacter'
+        break;
+    }
+
   }, [pathname])
   
   return (

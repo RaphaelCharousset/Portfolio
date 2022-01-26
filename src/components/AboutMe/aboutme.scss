@@ -99,6 +99,7 @@
     
     .cloud {
       &x1 {
+        opacity: .8;
         animation: 45s linear moveclouds infinite;
       }
       
@@ -106,14 +107,14 @@
         left: 150px;
         animation: 30s linear moveclouds infinite;
         transform: scale(0.6);
-        opacity: 0.6;
+        opacity: 0.4;
       }
       
       &x3 {
         left: -150px;
         top: -200px;
         transform: scale(0.8);
-        opacity: 0.8;
+        opacity: 0.6;
         animation: 30s linear moveclouds infinite;
       }
       
@@ -121,7 +122,7 @@
         left: 200px;
         top: -250px;
         transform: scale(0.75);
-        opacity: 0.75;
+        opacity: 0.55;
         animation: 27s linear moveclouds infinite;
       }
       
@@ -129,7 +130,7 @@
         left: -200px;
         top: -150px;
         transform: scale(0.8);
-        opacity: 0.8; 
+        opacity: 0.6; 
         animation: 21s linear moveclouds infinite;
       }
     }
