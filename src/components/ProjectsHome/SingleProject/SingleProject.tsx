@@ -1,8 +1,11 @@
 import { forwardRef, memo, useEffect, useRef } from 'react';
-import Github from '../../../assets/websiteIcons/Github';
-import Web from '../../../assets/websiteIcons/Web';
+
 import { observer } from '../../../functions/appearOnScroll';
 import { Project } from './../../../interfaces/Project';
+
+import Github from '../../../assets/websiteIcons/Github';
+import Web from '../../../assets/websiteIcons/Web';
+
 import './singleProject.scss'
 
 export const SingleProject = memo(forwardRef((
@@ -33,7 +36,7 @@ export const SingleProject = memo(forwardRef((
           </h3>
         </div>
 
-        <p>{description}</p>
+        <div className='single-project__main__description'>{description}</div>
 
         <footer className='single-project__footer'>
           {ghLink && (

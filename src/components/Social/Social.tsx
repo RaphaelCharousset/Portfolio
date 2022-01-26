@@ -1,5 +1,9 @@
 import { useEffect, useRef } from 'react'
+import { NavLink } from 'react-router-dom'
+
 import { observer } from '../../functions/appearOnScroll'
+
+// SVG Components
 import { CodingameLogo } from '../../assets/socialLogo/CodingameLogo'
 import { GithubLogo } from '../../assets/socialLogo/GithubLogo'
 import { LinkedinLogo } from '../../assets/socialLogo/LinkedinLogo'
@@ -7,7 +11,6 @@ import { MailLogo } from '../../assets/socialLogo/MailLogo'
 import { PhoneLogo } from '../../assets/socialLogo/PhoneLogo'
 
 import './social.scss'
-import { NavLink } from 'react-router-dom'
 
 export const Social = () => {
   const contacts = useRef<HTMLDivElement>(null)

@@ -1,6 +1,11 @@
 import { useEffect, useRef } from 'react'
-import { observer } from '../../functions/appearOnScroll'
+
+// components
 import { Cursor } from '../Cursor/Cursor'
+
+// functions
+import { observer } from '../../functions/appearOnScroll'
+
 import './hero.scss'
 
 export const Hero = () => {

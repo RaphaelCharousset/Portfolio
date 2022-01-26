@@ -27,11 +27,13 @@ const App = () => {
       case '/projects':
         document.title = 'Mes projets'
         break;
-      default:
+      case '/projects':
         document.title = 'Me contacter'
         break;
+      default:
+        document.title = 'Raphaël Charousset - erreur 404'
+        break;
     }
-
   }, [pathname])
   
   return (

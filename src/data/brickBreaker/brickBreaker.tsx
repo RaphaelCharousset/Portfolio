@@ -9,5 +9,5 @@ export const brickBreaker: Project = {
   stack: ['HTML', 'Sass', 'JS'],
   ghLink: 'https://github.com/RaphaelCharousset/Brick-Breaker',
   urlLink: 'https://raphaelcharousset.github.io/Brick-Breaker/',
-  description: "Petit jeu de brick-breaker réalisé en JavaScript Vanilla. L'objectif était de me familiariser avec les évènements JavaScript. "
+  description: <p>Petit jeu de brick-breaker réalisé en JavaScript Vanilla. L'objectif était de me familiariser avec les évènements JavaScript.</p>
 }

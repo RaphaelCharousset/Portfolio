@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export interface Project {
   name: string,
   year: number,
@@ -6,5 +8,5 @@ export interface Project {
   stack: string[],
   ghLink: string,
   urlLink: string | undefined,
-  description: string,
+  description: ReactElement<HTMLParagraphElement, string>,
 }

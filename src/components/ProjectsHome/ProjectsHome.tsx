@@ -1,10 +1,14 @@
-import { projectsForHome } from './../../data/index';
-import { SingleProject } from './SingleProject/SingleProject';
-import { createRef, MouseEvent, useState, useEffect, useRef } from 'react';
+import { createRef, MouseEvent, useState, useEffect, useRef } from 'react'
+import { NavLink } from 'react-router-dom'
+
+import { projectsForHome } from './../../data/index'
+import { SingleProject } from './SingleProject/SingleProject'
+
+// Components
+import { Arrow } from '../../assets/others/Arrow'
+import { observer } from '../../functions/appearOnScroll'
+
 import './projectshome.scss'
-import { NavLink } from 'react-router-dom';
-import { Arrow } from '../../assets/others/Arrow';
-import { observer } from '../../functions/appearOnScroll';
 
 export const ProjectsHome = () => {
   const container = useRef<HTMLParagraphElement>(null)
@@ -12,12 +16,12 @@ export const ProjectsHome = () => {
   const link = useRef<HTMLParagraphElement>(null)
   
   const gap = 36
-  const ref = createRef()
+  const ref = createRef<HTMLElement>()
   const [position, setPosition] = useState(0)
   const [selected, setSelected] = useState(0)
   
   const handleClick: (e: MouseEvent<HTMLButtonElement>) => void = (e) => {
-    const width: number = ref.current.offsetWidth
+    const width: number = ref.current?.offsetWidth || 0
     const index: number = e.target.value
     setPosition(index * (width + gap))
     setSelected(index)

@@ -1,15 +1,16 @@
 import { init, send } from '@emailjs/browser'
 import { useEffect, useRef, useState } from "react"
 import { emailJSInfos } from '../../secret/ids'
+import { observer } from '../../functions/appearOnScroll'
+import { checkFields } from '../../functions/checkFields'
 
+// components
 import Field from './Field/Field'
 import Loader from '../Loader/Loader'
 import MailAnimation from './MailAnimation/MailAnimation'
+import { Cursor } from '../Cursor/Cursor'
 
 import './contact.scss'
-import { observer } from '../../functions/appearOnScroll'
-import { checkFields } from '../../functions/checkFields'
-import { Cursor } from '../Cursor/Cursor'
 
 const Contact = () => {
   const { serviceId,templateId,userId } = emailJSInfos
@@ -58,7 +59,7 @@ const Contact = () => {
     )
   }
     
-  const handleSubmit : (e: React.SyntheticEvent<HTMLFormElement, React.FormEvent<HTMLFormElement>>) => void = (e) => {
+  const handleSubmit : (e: React.FormEvent<HTMLFormElement>) => void = (e) => {
     e.preventDefault()
     
     const templateParams = { 

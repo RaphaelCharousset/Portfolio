@@ -1,24 +1,8 @@
 import { memo, useEffect, useState } from "react"
 
-interface Icon {
-  index: number;
-  icon: JSX.Element;
-  nbIcons: number
-}
+import { animationIcon } from "../../../../functions/animationIcon"
 
-const animation = (
-  state: number, stateSetter: (arg: number) => void, nbIcons: number, setIsHidden: (arg: boolean) => void
-) => {
-  if (state < 0) {
-    setIsHidden(true)
-    stateSetter((50 + 50) * (nbIcons - 1))
-
-    setTimeout(() => {
-      setIsHidden(false)
-    }, 2000)
-  }
-  else stateSetter(state - 50)
-}
+import { Icon } from "../../../../interfaces/Icon"
 
 export const IconAnimation = memo((
   {index, icon, nbIcons}: Icon
@@ -27,11 +11,11 @@ export const IconAnimation = memo((
     const [isHidden, setIsHidden] = useState(false)
     
     useEffect(() => {
-      animation(position, setPosition, nbIcons, setIsHidden)
+      animationIcon(position, setPosition, nbIcons, setIsHidden)
     }, [])
     
     setTimeout(() => {
-      animation(position, setPosition, nbIcons, setIsHidden)
+      animationIcon(position, setPosition, nbIcons, setIsHidden)
     }, 2000)
 
   return (

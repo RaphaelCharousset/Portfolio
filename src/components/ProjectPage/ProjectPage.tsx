@@ -1,8 +1,12 @@
 import { useEffect, useRef } from 'react'
+
 import { allProjects } from '../../data'
 import { observer } from '../../functions/appearOnScroll'
+
+// components
 import { Cursor } from '../Cursor/Cursor'
 import { SingleProject } from '../ProjectsHome/SingleProject/SingleProject'
+
 import './projectpage.scss'
 
 export const ProjectPage = () => {

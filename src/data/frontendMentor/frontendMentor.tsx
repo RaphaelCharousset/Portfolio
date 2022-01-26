@@ -9,5 +9,5 @@ export const frontendMentor: Project = {
   stack: ['HTML', 'CSS', 'JS'],
   ghLink: 'https://github.com/RaphaelCharousset/Frontend-Mentor',
   urlLink: undefined,
-  description: "Mes premiers pas de développeur. Une vingtaine de challenges d'intégration afin de pratiquer encore et encore les bases."
+  description: <p>Mes premiers pas de développeur. Une vingtaine de challenges d'intégration afin de pratiquer encore et encore les bases.</p>
 }

@@ -1,25 +1,27 @@
 import { useEffect, useRef } from 'react'
+
 import { observer } from '../../functions/appearOnScroll'
 
+// SVG Components
 import { ReactLogo } from '../../assets/stackLogo/frontend/ReactLogo'
 import { ReduxLogo } from '../../assets/stackLogo/frontend/ReduxLogo'
 import { SassLogo } from '../../assets/stackLogo/frontend/SassLogo'
 import { TypescriptLogo } from '../../assets/stackLogo/frontend/TypescriptLogo'
 import { JavascriptLogo } from '../../assets/stackLogo/frontend/JavascriptLogo'
-import { Section } from './Section/Section'
 import { NodeLogo } from '../../assets/stackLogo/backend/NodeLogo'
 import { ExpressLogo } from '../../assets/stackLogo/backend/ExpressLogo'
 import { PsqlLogo } from '../../assets/stackLogo/backend/PsqlLogo'
 import { FirebaseLogo } from '../../assets/stackLogo/backend/FirebaseLogo'
+
+// Components
+import { Section } from './Section/Section'
 import { StackSection } from '../../interfaces/StackSection'
 
 import './stack.scss'
 
 export const Stack = () => {
-  const { logoColor, logoSize } : { logoColor: string, logoSize: string } = {
-    logoColor: '#ED7D3A',
-    logoSize: '50px'
-  }
+  const logoColor = '#ED7D3A'
+  const logoSize = '50px'
 
   const frontSection: StackSection = {
     title: 'Frontend ReactJS',

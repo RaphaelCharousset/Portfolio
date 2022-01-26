@@ -67,7 +67,7 @@ $main-height: 300px;
     position: absolute;
     height: $main-height;
     left: 0;
-    bottom: -180px; // $main-height - ($project-height - $project-height)
+    bottom: -180px;
     background: vars.$primary;
     flex: 1;
     display: flex;
@@ -105,6 +105,33 @@ $main-height: 300px;
   
       & span {
         color: inherit;
+      }
+    }
+
+    &__description {
+      line-height: 1.05;
+
+      & a {
+        padding-bottom: 2px;
+        position: relative;
+        color: vars.$secondary;
+        font-size: .9em;
+
+        &::before {
+          position: absolute;
+          content: '';
+          left: 50%;
+          right: 50%;
+          bottom: 0;
+          height: 1px;
+          background: vars.$secondary;
+          transition: all .5s ease-in-out;
+        }
+
+        &:hover::before {
+          left: 0;
+          right: 0;
+        }
       }
     }
   }

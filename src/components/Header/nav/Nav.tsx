@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+
 import './nav.scss'
 
 export const Nav = () => {
@@ -10,7 +11,7 @@ export const Nav = () => {
     setIsOpen(false)
   }, [pathname])
 
-  const handleClick = () => setIsOpen(!isOpen)
+  const handleClick = () => setIsOpen(value => !value)
   
   return (
     <nav className='header-nav'>
