@@ -1,0 +1,107 @@
+@import '../../../styles/mixins.scss';
+
+.mail-animation {
+  position: relative;
+  cursor: none;
+
+  & .mailbox {
+    width: 80px;
+
+    @include s-screen {
+      width: 40px;
+    }
+  }
+
+  & .mail {
+    width: 40px;
+
+    @include s-screen {
+      width: 20px;
+    }
+  }
+
+  &__mailbox {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @include s-screen {
+      bottom: 1rem;
+    }
+  }
+
+  &__mail {
+    position: absolute;
+    animation: flyingMail 8s ease-in-out infinite;
+
+    @include s-screen {
+      animation: flyingMailMobile 8s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes flyingMail {
+  from {
+    bottom: 0;
+    left: 450px;
+    transform: scale(.6);
+  }
+  30% {
+    bottom: 100vh;
+    left: calc(450px + 50vw);
+    transform: scale(.6);
+  }
+  31% {
+    bottom: 100vh;
+    left: -100%;
+    transform: scale(1);
+  }
+  32% {
+    bottom: 20vh;
+    left: -50vw;
+    transform: rotate(45deg);
+  }
+  90% {
+    bottom: .5rem;
+    left: calc(100% - 100px);
+    transform: rotate(45deg);
+  }
+  to {
+    bottom: .5rem;
+    left: calc(100% - 100px);
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes flyingMailMobile {
+  from {
+    bottom: 1rem;
+    left: 260px;
+    transform: scale(.6);
+  }
+  30% {
+    bottom: 100vh;
+    left: calc(260px + 100vw);
+    transform: scale(.6);
+  }
+  31% {
+    bottom: 100vh;
+    left: -100%;
+    transform: scale(1);
+  }
+  32% {
+    bottom: 20vh;
+    left: -50vw;
+    transform: rotate(45deg);
+  }
+  90% {
+    bottom: 1.2rem;
+    left: calc(100% - 50px);
+    transform: rotate(45deg);
+  }
+  to {
+    bottom: 1.2rem;
+    left: calc(100% - 50px);
+    transform: rotate(45deg);
+  }
+}

@@ -1,0 +1,5 @@
+export const emailJSInfos = {
+  serviceId: 'serviceId',
+  templateId: 'templateId',
+  userId: "userId"
+}

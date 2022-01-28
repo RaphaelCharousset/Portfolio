@@ -1,0 +1,27 @@
+@use '../../styles/vars';
+@import '../../styles/mixins.scss';
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid vars.$secondary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include s-screen {
+    display: none;
+  }
+
+  &__center {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: vars.$writing;
+  }
+}

@@ -1,0 +1,53 @@
+@use '../../../styles/vars';
+
+.form-field {
+  position: relative;
+  height: 100%;
+
+  &__label {
+    position: absolute;
+    cursor: text;
+    transition: all .3s ease;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .field-empty {
+    left: 1.2rem;
+    bottom: calc(100% - 2rem - 1px);
+    color: vars.$grey;
+  }
+
+  .field-fill {
+    bottom: calc(100% + 5px);
+    color: vars.$secondary;
+    left: 2px;
+  }
+
+  textarea {
+    height: 100%;
+  }
+
+  &__input {
+    font-family: inherit;
+    font-size: 1rem;
+    width: 100%;
+    border: 1px solid vars.$writing;
+    border-radius: 3px;
+    background: none;
+    transition: border .3s ease;
+    padding: 1rem;
+
+    &:focus-visible {
+      border: 1px solid vars.$secondary;
+      outline: none;
+    }
+  }
+
+  &__error-msg {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 2px;
+    font-size: .8rem;
+    color: vars.$error;
+  }
+}

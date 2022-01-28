@@ -1,0 +1,254 @@
+@use '../../styles/vars';
+@import '../../styles/mixins.scss';
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+
+.error-404 {
+  overflow: hidden;
+
+  & .header {
+    cursor: initial;
+  }
+
+  min-height: 100vh;
+  background: vars.$primary;
+  padding-top: 13rem;
+  display: flex;
+
+  &__wrapper {
+    min-height: 480px;
+    flex: 1;
+    background: linear-gradient(vars.$alternative-bg 30%, vars.$very-dark-bg);
+    position: relative;
+
+    @include s-screen {
+      min-height: 300px;
+    }
+
+    &__error {
+      color: vars.$secondary;
+      position: absolute;
+      left: 50%;
+      top: 20px;
+      font-size: 20rem;
+      transform: translateX(-50%);
+      font-family: 'Monoton', cursive;
+
+      @include s-screen {
+        font-size: 7rem;
+      }
+    } 
+
+    &__fishing-pier, &__fishing-boat {
+      fill: vars.$writing;
+      position: absolute;
+      width: 6rem;
+    }
+
+    &__fishing-pier {
+      left: -5px;
+      top: calc(-5rem - 40px);
+    }
+    
+    &__fishing-boat {
+      right: 30%;
+      top: calc(-4rem - 30px);
+      animation: boat 5s linear infinite;
+    }
+
+    &__big-fish, &__small-fish {
+      fill: vars.$writing;
+      position: absolute;
+      width: 6rem;
+
+      @include s-screen {
+        width: 4rem;
+      }
+    }
+
+    &__big-fish {
+      bottom: 50%;
+      left: 5%;
+      animation: swimToRight 40s infinite;
+    }
+
+    &__small-fish {
+      bottom: 30%;
+      left: 75%;
+      animation: swimToLeft 45s infinite;
+    }
+
+    &__jellyfish {
+      fill: vars.$writing;
+      position: absolute;
+
+      &:nth-child(even) {
+        width: 4.5rem;
+        bottom: 30%;
+        left: 15%;
+        animation: swimToTop 25s infinite;
+
+        @include s-screen {
+          width: 3rem;
+        }
+      }
+
+      &:nth-child(odd) {
+        width: 6rem;
+        bottom: 15%;
+        left: 75%;
+        animation: swimToTop 40s infinite;
+
+        @include s-screen {
+          width: 4rem;
+        }
+      }
+    }
+
+    &__scuba-diver {
+      fill: vars.$writing;
+      position: absolute;
+      width: 6rem;
+      bottom: 10%;
+      right: 10%;
+      animation: upAndDown 10s infinite;
+    }
+    
+    &__diamond {
+      & span {
+        position: absolute;
+        bottom: 5px;
+        
+        &:nth-child(0n + 1){
+          width: 2rem;
+          right: 2.2rem;
+        }
+        
+        &:nth-child(0n + 2){
+          width: 1.5rem;
+          right: 4rem;
+          transform: rotate(-10deg);
+        }
+        
+        &:nth-child(0n + 3){
+          width: 1rem;
+          right: 1.2rem;
+          transform: rotate(10deg);
+        }
+      }
+    }
+
+    &__text {
+      color: vars.$writing;
+      font-size: 2rem;
+      position: absolute;
+      left: 15%;
+      right: 15%;
+      text-align: center;
+      bottom: 20px;
+      
+      @include s-screen {
+        left: 5%;
+        right: 35%;
+        font-size: 1.2rem;
+      }
+
+      & .error-404__home-link {
+        color: vars.$secondary;
+        position: relative;
+
+        &::before {
+          position: absolute;
+          content: '';
+          left: 50%;
+          right: 50%;
+          bottom: 0;
+          height: 1px;
+          background: vars.$secondary;
+          transition: all .5s ease-in-out;
+        }
+    
+        &:hover::before {
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+  }
+
+}
+
+@keyframes boat {
+  from {
+    transform: rotate(0);
+  }
+  25% {
+    transform: translateY(-5%) rotate(-10deg);
+  }
+  75% {
+    transform: translateY(5%) rotate(10deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes swimToRight {
+  from {
+    transform: translateX(0) rotate3d(0, 0, 0, 0turn);
+  }
+  45% {
+    transform: translateX(70vw) rotate3d(0, 0, 0, 0turn);
+  }
+  55% {
+    transform: translateX(70vw) rotate3d(0, 1, 0, .5turn);
+  }
+  90% {
+    transform: translateX(0) rotate3d(0, 1, 0, .5turn);
+  }
+  to {
+    transform: translateX(0) rotate3d(0, 0, 0, 0turn);
+  }
+}
+
+@keyframes swimToLeft {
+  from {
+    transform: translateX(0) rotate3d(0, 1, 0, .5turn);
+  }
+  45% {
+    transform: translateX(-70vw) rotate3d(0, 1, 0, .5turn);
+  }
+  55% {
+    transform: translateX(-70vw) rotate3d(0, 0, 0, 0turn);
+  }
+  90% {
+    transform: translateX(0) rotate3d(0, 0, 0, 0turn);
+  }
+  to {
+    transform: translateX(0) rotate3d(0, 1, 0, .5turn);
+  }
+}
+
+@keyframes swimToTop {
+  from {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-40vh);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes upAndDown {
+  from {
+    transform: translateY(-10%) rotate3d(0, 1, 0, .5turn);
+  }
+  50% {
+    transform: translateY(10%) rotate3d(0, 1, 0, .5turn);
+  }
+  to {
+    transform: translateY(-10%) rotate3d(0, 1, 0, .5turn);
+  }
+}

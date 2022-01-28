@@ -1,0 +1,35 @@
+@use '../../styles/vars';
+
+%circle {
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 3px solid vars.$writing;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.loader {
+  @extend %circle;
+  position: relative;
+  animation: pulse 1s linear infinite;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    @extend %circle;
+    animation: scaleUp 1s linear infinite;
+  }
+}
+
+@keyframes scaleUp {
+  0% { transform: translate(-50%, -50%) scale(0) }
+  60% , 100% { transform: translate(-50%, -50%)  scale(1)}
+}
+@keyframes pulse {
+  0% , 60% , 100%{ transform:  scale(1) }
+  80% { transform: scale(1.2)}
+}
